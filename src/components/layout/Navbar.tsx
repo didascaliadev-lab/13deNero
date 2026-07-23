@@ -105,8 +105,7 @@ export default function Navbar() {
         z-50
         border-b
         border-white/10
-        bg-bg/90
-        backdrop-blur-2xl
+       bg-bg/55 backdrop-blur-xl border-white/5
       "
     >
       <Container size="2xl">

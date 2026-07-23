@@ -18,11 +18,11 @@ export const productos: Producto[] = [
     translationKey: "products.items.misterio",
 
     imagenes: {
-      heroDesktop: "/images/productos/misterio/hero.jpg",
-      heroMobile: "/images/productos/misterio/hero-mobile.jpg",
-      botella: "/images/productos/misterio/botella.png",
-      relato: "/images/productos/misterio/relato.jpg",
-      momento: "/images/productos/misterio/momento.jpg",
+      heroDesktop: "/fotos/productos/misterio/hero.jpg",
+      heroMobile: "/fotos/productos/misterio/hero-celu.jpg",
+      botella: "/fotos/productos/misterio/misterio-hero.jpg",
+      relato: "/fotos/productos/misterio/relato.jpg",
+      momento: "/fotos/productos/misterio/momento.jpg",
     },
   },
 
@@ -31,11 +31,11 @@ export const productos: Producto[] = [
     translationKey: "products.items.nostalgia",
 
     imagenes: {
-      heroDesktop: "/images/productos/nostalgia/hero.jpg",
-      heroMobile: "/images/productos/nostalgia/hero-mobile.jpg",
-      botella: "/images/productos/nostalgia/botella.png",
-      relato: "/images/productos/nostalgia/relato.jpg",
-      momento: "/images/productos/nostalgia/momento.jpg",
+      heroDesktop: "/fotos/productos/nostalgia/hero.jpg",
+      heroMobile: "/fotos/productos/nostalgia/hero-celu.jpg",
+      botella: "/fotos/productos/nostalgia/botella.png",
+      relato: "/fotos/productos/nostalgia/relato.jpg",
+      momento: "/fotos/productos/nostalgia/momento.jpg",
     },
   },
 
@@ -44,11 +44,11 @@ export const productos: Producto[] = [
     translationKey: "products.items.deseo",
 
     imagenes: {
-      heroDesktop: "/images/productos/deseo/hero.jpg",
-      heroMobile: "/images/productos/deseo/hero-mobile.jpg",
-      botella: "/images/productos/deseo/botella.png",
-      relato: "/images/productos/deseo/relato.jpg",
-      momento: "/images/productos/deseo/momento.jpg",
+      heroDesktop: "/fotos/productos/deseo/hero.jpg",
+      heroMobile: "/fotos/productos/deseo/hero-celu.jpg",
+      botella: "/fotos/productos/deseo/botella.png",
+      relato: "/fotos/productos/deseo/relato.jpg",
+      momento: "/fotos/productos/deseo/momento.jpg",
     },
   },
 
@@ -57,11 +57,11 @@ export const productos: Producto[] = [
     translationKey: "products.items.alegria",
 
     imagenes: {
-      heroDesktop: "/images/productos/alegria/hero.jpg",
-      heroMobile: "/images/productos/alegria/hero-mobile.jpg",
-      botella: "/images/productos/alegria/botella.png",
-      relato: "/images/productos/alegria/relato.jpg",
-      momento: "/images/productos/alegria/momento.jpg",
+      heroDesktop: "/fotos/productos/alegria/hero.jpg",
+      heroMobile: "/fotos/productos/alegria/hero-celu.jpg",
+      botella: "/fotos/productos/alegria/botella.jpg",
+      relato: "/fotos/productos/alegria/relato.png",
+      momento: "/fotos/productos/alegria/momento.jpg",
     },
   },
 ];

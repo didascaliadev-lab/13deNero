@@ -48,7 +48,7 @@ export default function HeroProducto({
         />
       </picture>
 
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/15" />
 
       <div
         className="
@@ -187,18 +187,7 @@ export default function HeroProducto({
             </div>
           </div>
 
-          <div className="hidden items-center justify-center lg:flex">
-            <img
-              src={producto.imagenes.botella}
-              alt={`${t("products.common.alchemy")}: ${nombre}`}
-              className="
-                max-h-[590px]
-                w-auto
-                object-contain
-                drop-shadow-[0_30px_35px_rgba(0,0,0,0.55)]
-              "
-            />
-          </div>
+         
         </div>
       </Container>
     </section>
