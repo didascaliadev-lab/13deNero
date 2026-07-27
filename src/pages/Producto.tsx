@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import BotellaInteractiva from "../components/ui/BotellaInteractiva";
 import HeroProducto from "../components/sections/HeroProducto";
 import Container from "../components/ui/Container";
 
@@ -55,46 +55,42 @@ export default function Producto() {
     <main className="bg-bg">
       <HeroProducto producto={producto} />
 
-      {/* Relato */}
-      <section className="bg-bg py-20 sm:py-24 lg:py-32">
+       {/* Relato */}
+      <section
+        className="
+          relative
+          overflow-hidden
+          bg-bg
+          py-16
+          sm:py-20
+          lg:py-24
+        "
+      >
         <Container size="xl">
           <div
             className="
               grid
               items-center
               gap-10
-              lg:grid-cols-2
+              lg:grid-cols-[0.9fr_1.1fr]
               lg:gap-16
               xl:gap-24
             "
           >
+            {/* Botella interactiva */}
             {producto.imagenes.relato && (
-              <div
-                className="
-                  overflow-hidden
-                  border
-                  border-white/10
-                "
-              >
-                <div className="aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
-                  <img
-                    src={producto.imagenes.relato}
-                    alt={nombre}
-                    loading="lazy"
-                    className="
-                      h-full
-                      w-full
-                      object-cover
-                      transition-transform
-                      duration-700
-                      hover:scale-[1.03]
-                    "
-                  />
-                </div>
-              </div>
+              <BotellaInteractiva
+                alt={nombre}
+                imagenes={
+                  producto.imagenes.vistasRelato?.length
+                    ? producto.imagenes.vistasRelato
+                    : [producto.imagenes.relato]
+                }
+              />
             )}
 
-            <div>
+            {/* Texto */}
+            <div className="lg:pl-4">
               <span
                 className="
                   text-[0.65rem]
@@ -108,10 +104,11 @@ export default function Producto() {
 
               <h2
                 className="
-                  mt-4
+                  mt-5
+                  max-w-2xl
                   font-title
                   text-4xl
-                  leading-tight
+                  leading-[1.08]
                   text-text
                   sm:text-5xl
                   lg:text-6xl
@@ -123,6 +120,7 @@ export default function Producto() {
               <p
                 className="
                   mt-7
+                  max-w-[560px]
                   text-base
                   leading-8
                   text-text-muted
@@ -136,8 +134,7 @@ export default function Producto() {
           </div>
         </Container>
       </section>
-
-      {/* Introspección */}
+       {/* Introspección */}
       <section className="bg-surface/40 py-20 sm:py-24 lg:py-28">
         <Container size="lg">
           <div className="mx-auto max-w-4xl text-center">

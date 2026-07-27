@@ -6,10 +6,10 @@ import {
 import Container from "../ui/Container";
 
 const footerLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Productos", href: "#productos" },
-  { label: "Portal", href: "#portal" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Productos", href: "/productos" },
+  { label: "Portal", href: "/portal" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 const socialClass = `
@@ -40,7 +40,7 @@ export default function Footer() {
 
           <div>
             <h3 className="font-title text-3xl tracking-[5px]">
-              13 de Enero
+              13 deNERO
             </h3>
 
             <p className="mt-5 max-w-sm">
@@ -137,7 +137,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:contacto@13deenero.com"
+                href="mailto:contacto@13denero.com"
                 className="
                   w-fit
                   text-[var(--color-text-muted)]

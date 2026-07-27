@@ -14,7 +14,7 @@ const es = {
   },
   home: {
     hero:{
-      title: "Mezcal 13 de Enero",
+      title: "Mezcal 13 deNERO",
     subtitle: "El fuego que unió dos almas",
     primaryButton: "Descubrir Mezcales",
     secondaryButton: "Nuestra Historia", },

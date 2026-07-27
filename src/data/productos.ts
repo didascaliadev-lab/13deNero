@@ -1,8 +1,10 @@
 export type ProductoImagenes = {
   heroDesktop: string;
   heroMobile?: string;
-  botella: string;
+
   relato?: string;
+  vistasRelato?: string[];
+
   momento?: string;
 };
 
@@ -20,9 +22,17 @@ export const productos: Producto[] = [
     imagenes: {
       heroDesktop: "/fotos/productos/misterio/hero.jpg",
       heroMobile: "/fotos/productos/misterio/hero-celu.jpg",
-      botella: "/fotos/productos/misterio/misterio-hero.jpg",
-      relato: "/fotos/productos/misterio/relato.jpg",
-      momento: "/fotos/productos/misterio/momento.jpg",
+
+      relato: "/fotos/productos/misterio/vistas/frente.webp",
+
+      vistasRelato: [
+        "/fotos/productos/misterio/vistas/misterio1.webp",
+        "/fotos/productos/misterio/vistas/misterio2.webp",
+        "/fotos/productos/misterio/vistas/misterio3.webp",
+        "/fotos/productos/misterio/vistas/misterio4.webp",
+      ],
+
+      momento: "/fotos/productos/misterio/momento1.webp",
     },
   },
 
@@ -33,9 +43,17 @@ export const productos: Producto[] = [
     imagenes: {
       heroDesktop: "/fotos/productos/nostalgia/hero.jpg",
       heroMobile: "/fotos/productos/nostalgia/hero-celu.jpg",
-      botella: "/fotos/productos/nostalgia/botella.png",
-      relato: "/fotos/productos/nostalgia/relato.jpg",
-      momento: "/fotos/productos/nostalgia/momento.jpg",
+
+      relato: "/fotos/productos/nostalgia/vistas/frente.webp",
+
+      vistasRelato: [
+        "/fotos/productos/nostalgia/vistas/nostalgia1.webp",
+        "/fotos/productos/nostalgia/vistas/nostalgia2.webp",
+        "/fotos/productos/nostalgia/vistas/nostalgia3.webp",
+        "/fotos/productos/nostalgia/vistas/nostalgia4.webp",
+      ],
+
+      momento: "/fotos/productos/nostalgia/momento1.webp",
     },
   },
 
@@ -46,9 +64,17 @@ export const productos: Producto[] = [
     imagenes: {
       heroDesktop: "/fotos/productos/deseo/hero.jpg",
       heroMobile: "/fotos/productos/deseo/hero-celu.jpg",
-      botella: "/fotos/productos/deseo/botella.png",
-      relato: "/fotos/productos/deseo/relato.jpg",
-      momento: "/fotos/productos/deseo/momento.jpg",
+
+      relato: "/fotos/productos/deseo/vistas/frente.webp",
+
+      vistasRelato: [
+        "/fotos/productos/deseo/vistas/deseo1.webp",
+        "/fotos/productos/deseo/vistas/deseo2.webp",
+        "/fotos/productos/deseo/vistas/deseo3.webp",
+        "/fotos/productos/deseo/vistas/deseo4.webp",
+      ],
+
+      momento: "/fotos/productos/deseo/momento1.webp",
     },
   },
 
@@ -59,9 +85,16 @@ export const productos: Producto[] = [
     imagenes: {
       heroDesktop: "/fotos/productos/alegria/hero.jpg",
       heroMobile: "/fotos/productos/alegria/hero-celu.jpg",
-      botella: "/fotos/productos/alegria/botella.jpg",
-      relato: "/fotos/productos/alegria/relato.png",
-      momento: "/fotos/productos/alegria/momento.jpg",
+      relato: "/fotos/productos/alegria/vistas/frente.webp",
+
+      vistasRelato: [
+        "/fotos/productos/alegria/vistas/alegria1.webp",
+        "/fotos/productos/alegria/vistas/alegria2.webp",
+        "/fotos/productos/alegria/vistas/alegria3.webp",
+        "/fotos/productos/alegria/vistas/alegria4.webp",
+      ],
+
+      momento: "/fotos/productos/alegria/momento1.webp",
     },
   },
 ];
@@ -71,5 +104,7 @@ export function obtenerProductoPorSlug(
 ): Producto | undefined {
   if (!slug) return undefined;
 
-  return productos.find((producto) => producto.slug === slug);
+  return productos.find(
+    (producto) => producto.slug === slug,
+  );
 }
