@@ -55,20 +55,46 @@ export default function Producto() {
     <main className="bg-bg">
       <HeroProducto producto={producto} />
 
-       {/* Relato */}
+     {/* Relato */}
       <section
         className="
           relative
+          -mt-24
           overflow-hidden
-          bg-bg
-          py-16
-          sm:py-20
-          lg:py-24
+          bg-black
+          pt-40
+          pb-16
+          sm:-mt-28
+          sm:pt-48
+          sm:pb-20
+          lg:-mt-32
+          lg:pt-56
+          lg:pb-24
         "
-      >
+    >
+        {/* Transición entre hero y sección */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            top-0
+            h-40
+            bg-gradient-to-b
+            from-transparent
+            via-black/70
+            to-black
+            sm:h-48
+            lg:h-56
+          "
+        />
+
         <Container size="xl">
           <div
             className="
+              relative
+              z-10
               grid
               items-center
               gap-10
@@ -85,7 +111,7 @@ export default function Producto() {
                   producto.imagenes.vistasRelato?.length
                     ? producto.imagenes.vistasRelato
                     : [producto.imagenes.relato]
-                }
+                  }
               />
             )}
 
@@ -134,6 +160,7 @@ export default function Producto() {
           </div>
         </Container>
       </section>
+      
        {/* Introspección */}
       <section className="bg-surface/40 py-20 sm:py-24 lg:py-28">
         <Container size="lg">

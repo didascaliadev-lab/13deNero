@@ -1,14 +1,21 @@
 import { useState } from "react";
+import type {
+  FocusEvent,
+  MouseEvent,
+} from "react";
+
 import {
   HiBars3,
   HiChevronDown,
   HiOutlineShoppingBag,
   HiXMark,
 } from "react-icons/hi2";
+
 import {
   NavLink,
   useLocation,
 } from "react-router-dom";
+
 import { useTranslation } from "react-i18next";
 
 import Container from "../ui/Container";
@@ -65,8 +72,18 @@ const mobileLinkClass = `
 `;
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] =
+    useState(false);
+
+  const [
+    mobileProductsOpen,
+    setMobileProductsOpen,
+  ] = useState(false);
+
+  const [
+    desktopProductsOpen,
+    setDesktopProductsOpen,
+  ] = useState(false);
 
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -78,22 +95,60 @@ export default function Navbar() {
     location.pathname === "/productos" ||
     location.pathname.startsWith("/productos/");
 
-  const toggleMenu = () => {
-    setOpen((current) => !current);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((current) => !current);
+
+    if (mobileMenuOpen) {
+      setMobileProductsOpen(false);
+    }
   };
 
-  const toggleProducts = () => {
-    setProductsOpen((current) => !current);
+  const toggleMobileProducts = () => {
+    setMobileProductsOpen((current) => !current);
   };
 
-  const closeMenu = () => {
-    setOpen(false);
-    setProductsOpen(false);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileProductsOpen(false);
   };
 
-  const changeLanguage = (language: "es" | "en") => {
-    i18n.changeLanguage(language);
-    closeMenu();
+  const closeDesktopProducts = () => {
+    setDesktopProductsOpen(false);
+  };
+
+  const closeAllMenus = () => {
+    closeMobileMenu();
+    closeDesktopProducts();
+  };
+
+  const changeLanguage = (
+    language: "es" | "en",
+  ) => {
+    void i18n.changeLanguage(language);
+    closeAllMenus();
+  };
+
+  const handleDesktopProductClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+  ) => {
+    closeDesktopProducts();
+    event.currentTarget.blur();
+  };
+
+  const handleDesktopProductsBlur = (
+    event: FocusEvent<HTMLDivElement>,
+  ) => {
+    const nextFocusedElement =
+      event.relatedTarget as Node | null;
+
+    if (
+      !nextFocusedElement ||
+      !event.currentTarget.contains(
+        nextFocusedElement,
+      )
+    ) {
+      closeDesktopProducts();
+    }
   };
 
   return (
@@ -104,8 +159,9 @@ export default function Navbar() {
         top-0
         z-50
         border-b
-        border-white/10
-       bg-bg/55 backdrop-blur-xl border-white/5
+        border-white/5
+        bg-bg/55
+        backdrop-blur-xl
       "
     >
       <Container size="2xl">
@@ -123,7 +179,7 @@ export default function Navbar() {
           {/* Logo */}
           <NavLink
             to="/"
-            onClick={closeMenu}
+            onClick={closeAllMenus}
             aria-label={t("navbar.goHome")}
             className="
               z-20
@@ -149,7 +205,7 @@ export default function Navbar() {
             />
           </NavLink>
 
-          {/* Navegación escritorio */}
+          {/* Navegación de escritorio */}
           <nav
             className="
               hidden
@@ -159,12 +215,15 @@ export default function Navbar() {
               lg:flex
               xl:gap-12
             "
-            aria-label={t("navbar.mainNavigation")}
+            aria-label={t(
+              "navbar.mainNavigation",
+            )}
           >
             {/* Inicio */}
             <NavLink
               to="/"
               end
+              onClick={closeAllMenus}
               className={({ isActive }) =>
                 `${navLinkClass} ${
                   isActive
@@ -176,10 +235,25 @@ export default function Navbar() {
               {t("navbar.home")}
             </NavLink>
 
-            {/* Productos con submenú */}
-            <div className="group relative">
+            {/* Productos de escritorio */}
+            <div
+              className="relative"
+              onMouseEnter={() =>
+                setDesktopProductsOpen(true)
+              }
+              onMouseLeave={
+                closeDesktopProducts
+              }
+              onFocus={() =>
+                setDesktopProductsOpen(true)
+              }
+              onBlur={
+                handleDesktopProductsBlur
+              }
+            >
               <NavLink
                 to="/productos/misterio"
+                onClick={closeDesktopProducts}
                 className={`
                   ${navLinkClass}
                   flex
@@ -192,41 +266,59 @@ export default function Navbar() {
                   }
                 `}
                 aria-haspopup="menu"
+                aria-expanded={
+                  desktopProductsOpen
+                }
+                aria-controls="desktop-products-menu"
               >
-                <span>{t("navbar.products")}</span>
+                <span>
+                  {t("navbar.products")}
+                </span>
 
                 <HiChevronDown
                   size={15}
                   aria-hidden="true"
-                  className="
+                  className={`
                     transition-transform
                     duration-300
-                    group-hover:rotate-180
-                    group-focus-within:rotate-180
-                  "
+                    ${
+                      desktopProductsOpen
+                        ? "rotate-180"
+                        : ""
+                    }
+                  `}
                 />
               </NavLink>
 
-              {/* Espacio entre el enlace y el desplegable */}
+              {/* Submenú de escritorio */}
               <div
-                className="
-                  invisible
+                id="desktop-products-menu"
+                className={`
                   absolute
                   left-1/2
                   top-full
                   w-60
                   -translate-x-1/2
                   pt-6
-                  opacity-0
                   transition-all
                   duration-300
 
-                  group-hover:visible
-                  group-hover:opacity-100
-
-                  group-focus-within:visible
-                  group-focus-within:opacity-100
-                "
+                  ${
+                    desktopProductsOpen
+                      ? `
+                        visible
+                        translate-y-0
+                        opacity-100
+                        pointer-events-auto
+                      `
+                      : `
+                        invisible
+                        -translate-y-2
+                        opacity-0
+                        pointer-events-none
+                      `
+                  }
+                `}
               >
                 <div
                   className="
@@ -238,66 +330,82 @@ export default function Navbar() {
                     backdrop-blur-2xl
                   "
                   role="menu"
+                  aria-label={t(
+                    "navbar.products",
+                  )}
                 >
-                  {productos.map((producto) => {
-                    const nombreProducto = t(
-                      `${producto.translationKey}.state`,
-                    );
+                  {productos.map(
+                    (producto) => {
+                      const nombreProducto = t(
+                        `${producto.translationKey}.state`,
+                      );
 
-                    return (
-                      <NavLink
-                        key={producto.slug}
-                        to={`/productos/${producto.slug}`}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `
-                            group/item
-                            flex
-                            items-center
-                            justify-between
-                            px-4
-                            py-3
-                            text-sm
-                            tracking-[0.12em]
-                            transition-colors
-                            duration-300
-                            hover:bg-white/5
-                            hover:text-gold
-                            ${
-                              isActive
-                                ? "bg-white/5 text-gold"
-                                : "text-muted"
-                            }
-                          `
-                        }
-                      >
-                        <span>{nombreProducto}</span>
+                      return (
+                        <NavLink
+                          key={producto.slug}
+                          to={`/productos/${producto.slug}`}
+                          onClick={
+                            handleDesktopProductClick
+                          }
+                          role="menuitem"
+                          className={({
+                            isActive,
+                          }) =>
+                            `
+                              group/item
+                              flex
+                              items-center
+                              justify-between
+                              px-4
+                              py-3
+                              text-sm
+                              tracking-[0.12em]
+                              transition-colors
+                              duration-300
+                              hover:bg-white/5
+                              hover:text-gold
 
-                        <span
-                          aria-hidden="true"
-                          className="
-                            text-gold/60
-                            transition-transform
-                            duration-300
-                            group-hover/item:translate-x-1
-                          "
+                              ${
+                                isActive
+                                  ? "bg-white/5 text-gold"
+                                  : "text-muted"
+                              }
+                            `
+                          }
                         >
-                          →
-                        </span>
-                      </NavLink>
-                    );
-                  })}
+                          <span>
+                            {nombreProducto}
+                          </span>
+
+                          <span
+                            aria-hidden="true"
+                            className="
+                              text-gold/60
+                              transition-transform
+                              duration-300
+                              group-hover/item:translate-x-1
+                            "
+                          >
+                            →
+                          </span>
+                        </NavLink>
+                      );
+                    },
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Portal y contacto */}
             {links
-              .filter((item) => item.href !== "/")
+              .filter(
+                (item) => item.href !== "/",
+              )
               .map((item) => (
                 <NavLink
                   key={item.href}
                   to={item.href}
+                  onClick={closeAllMenus}
                   className={({ isActive }) =>
                     `${navLinkClass} ${
                       isActive
@@ -321,7 +429,7 @@ export default function Navbar() {
               lg:gap-6
             "
           >
-            {/* Selector de idioma escritorio */}
+            {/* Idioma escritorio */}
             <div
               className="
                 hidden
@@ -329,46 +437,64 @@ export default function Navbar() {
                 gap-2
                 lg:flex
               "
-              aria-label={t("navbar.languageSelector")}
+              aria-label={t(
+                "navbar.languageSelector",
+              )}
             >
               <button
                 type="button"
-                onClick={() => changeLanguage("es")}
+                onClick={() =>
+                  changeLanguage("es")
+                }
                 className={`
                   text-xs
                   tracking-[2px]
                   transition-colors
                   duration-300
                   hover:text-gold
+
                   ${
-                    currentLanguage.startsWith("es")
+                    currentLanguage.startsWith(
+                      "es",
+                    )
                       ? "text-gold"
                       : "text-muted"
                   }
                 `}
-                aria-pressed={currentLanguage.startsWith("es")}
+                aria-pressed={currentLanguage.startsWith(
+                  "es",
+                )}
               >
                 ES
               </button>
 
-              <span className="text-white/30">|</span>
+              <span className="text-white/30">
+                |
+              </span>
 
               <button
                 type="button"
-                onClick={() => changeLanguage("en")}
+                onClick={() =>
+                  changeLanguage("en")
+                }
                 className={`
                   text-xs
                   tracking-[2px]
                   transition-colors
                   duration-300
                   hover:text-gold
+
                   ${
-                    currentLanguage.startsWith("en")
+                    currentLanguage.startsWith(
+                      "en",
+                    )
                       ? "text-gold"
                       : "text-muted"
                   }
                 `}
-                aria-pressed={currentLanguage.startsWith("en")}
+                aria-pressed={currentLanguage.startsWith(
+                  "en",
+                )}
               >
                 EN
               </button>
@@ -377,7 +503,10 @@ export default function Navbar() {
             {/* Carrito */}
             <NavLink
               to="/tienda"
-              aria-label={t("navbar.openCart")}
+              onClick={closeAllMenus}
+              aria-label={t(
+                "navbar.openCart",
+              )}
               className="
                 relative
                 text-text
@@ -390,7 +519,9 @@ export default function Navbar() {
                 focus-visible:outline-gold
               "
             >
-              <HiOutlineShoppingBag size={26} />
+              <HiOutlineShoppingBag
+                size={26}
+              />
 
               <span
                 className="
@@ -417,7 +548,7 @@ export default function Navbar() {
             {/* Botón móvil */}
             <button
               type="button"
-              onClick={toggleMenu}
+              onClick={toggleMobileMenu}
               className="
                 text-text
                 transition-colors
@@ -426,14 +557,14 @@ export default function Navbar() {
                 lg:hidden
               "
               aria-label={
-                open
+                mobileMenuOpen
                   ? t("navbar.closeMenu")
                   : t("navbar.openMenu")
               }
-              aria-expanded={open}
+              aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >
-              {open ? (
+              {mobileMenuOpen ? (
                 <HiXMark size={30} />
               ) : (
                 <HiBars3 size={30} />
@@ -455,7 +586,12 @@ export default function Navbar() {
           transition-[max-height]
           duration-500
           lg:hidden
-          ${open ? "max-h-[900px]" : "max-h-0"}
+
+          ${
+            mobileMenuOpen
+              ? "max-h-[900px]"
+              : "max-h-0"
+          }
         `}
       >
         <Container>
@@ -465,20 +601,27 @@ export default function Navbar() {
               flex-col
               py-7
             "
-            aria-label={t("navbar.mobileNavigation")}
+            aria-label={t(
+              "navbar.mobileNavigation",
+            )}
           >
             {/* Inicio */}
             <NavLink
               to="/"
               end
-              onClick={closeMenu}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 `
                   ${mobileLinkClass}
                   border-b
                   border-white/10
                   py-4
-                  ${isActive ? "text-gold" : ""}
+
+                  ${
+                    isActive
+                      ? "text-gold"
+                      : ""
+                  }
                 `
               }
             >
@@ -496,7 +639,7 @@ export default function Navbar() {
               >
                 <NavLink
                   to="/productos/misterio"
-                  onClick={closeMenu}
+                  onClick={closeMobileMenu}
                   className={`
                     flex-1
                     py-4
@@ -505,6 +648,7 @@ export default function Navbar() {
                     transition-colors
                     duration-300
                     hover:text-gold
+
                     ${
                       productsActive
                         ? "text-gold"
@@ -517,7 +661,9 @@ export default function Navbar() {
 
                 <button
                   type="button"
-                  onClick={toggleProducts}
+                  onClick={
+                    toggleMobileProducts
+                  }
                   className="
                     flex
                     h-12
@@ -530,17 +676,25 @@ export default function Navbar() {
                     hover:text-gold
                   "
                   aria-label={
-                    productsOpen
-                      ? t("navbar.closeProductsMenu", {
-                          defaultValue:
-                            "Cerrar menú de productos",
-                        })
-                      : t("navbar.openProductsMenu", {
-                          defaultValue:
-                            "Abrir menú de productos",
-                        })
+                    mobileProductsOpen
+                      ? t(
+                          "navbar.closeProductsMenu",
+                          {
+                            defaultValue:
+                              "Cerrar menú de productos",
+                          },
+                        )
+                      : t(
+                          "navbar.openProductsMenu",
+                          {
+                            defaultValue:
+                              "Abrir menú de productos",
+                          },
+                        )
                   }
-                  aria-expanded={productsOpen}
+                  aria-expanded={
+                    mobileProductsOpen
+                  }
                   aria-controls="mobile-products-submenu"
                 >
                   <HiChevronDown
@@ -548,8 +702,9 @@ export default function Navbar() {
                     className={`
                       transition-transform
                       duration-300
+
                       ${
-                        productsOpen
+                        mobileProductsOpen
                           ? "rotate-180"
                           : ""
                       }
@@ -564,8 +719,9 @@ export default function Navbar() {
                   overflow-hidden
                   transition-[max-height,opacity]
                   duration-300
+
                   ${
-                    productsOpen
+                    mobileProductsOpen
                       ? "max-h-96 opacity-100"
                       : "max-h-0 opacity-0"
                   }
@@ -579,56 +735,70 @@ export default function Navbar() {
                     pl-5
                   "
                 >
-                  {productos.map((producto) => {
-                    const nombreProducto = t(
-                      `${producto.translationKey}.state`,
-                    );
+                  {productos.map(
+                    (producto) => {
+                      const nombreProducto = t(
+                        `${producto.translationKey}.state`,
+                      );
 
-                    return (
-                      <NavLink
-                        key={producto.slug}
-                        to={`/productos/${producto.slug}`}
-                        onClick={closeMenu}
-                        className={({ isActive }) =>
-                          `
-                            block
-                            py-3
-                            text-base
-                            tracking-[0.12em]
-                            transition-colors
-                            duration-300
-                            hover:text-gold
-                            ${
-                              isActive
-                                ? "text-gold"
-                                : "text-muted"
-                            }
-                          `
-                        }
-                      >
-                        {nombreProducto}
-                      </NavLink>
-                    );
-                  })}
+                      return (
+                        <NavLink
+                          key={producto.slug}
+                          to={`/productos/${producto.slug}`}
+                          onClick={
+                            closeMobileMenu
+                          }
+                          className={({
+                            isActive,
+                          }) =>
+                            `
+                              block
+                              py-3
+                              text-base
+                              tracking-[0.12em]
+                              transition-colors
+                              duration-300
+                              hover:text-gold
+
+                              ${
+                                isActive
+                                  ? "text-gold"
+                                  : "text-muted"
+                              }
+                            `
+                          }
+                        >
+                          {nombreProducto}
+                        </NavLink>
+                      );
+                    },
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* Portal y contacto */}
+            {/* Portal y contacto móvil */}
             {links
-              .filter((item) => item.href !== "/")
+              .filter(
+                (item) => item.href !== "/",
+              )
               .map((item) => (
                 <NavLink
                   key={item.href}
                   to={item.href}
-                  onClick={closeMenu}
+                  onClick={closeMobileMenu}
                   className={({ isActive }) =>
                     `
                       ${mobileLinkClass}
                       border-b
                       border-white/10
                       py-4
-                      ${isActive ? "text-gold" : ""}
+
+                      ${
+                        isActive
+                          ? "text-gold"
+                          : ""
+                      }
                     `
                   }
                 >
@@ -636,7 +806,7 @@ export default function Navbar() {
                 </NavLink>
               ))}
 
-            {/* Selector de idioma móvil */}
+            {/* Idioma móvil */}
             <div
               className="
                 flex
@@ -647,42 +817,58 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                onClick={() => changeLanguage("es")}
+                onClick={() =>
+                  changeLanguage("es")
+                }
                 className={`
                   text-sm
                   tracking-[2px]
                   transition-colors
                   duration-300
                   hover:text-gold
+
                   ${
-                    currentLanguage.startsWith("es")
+                    currentLanguage.startsWith(
+                      "es",
+                    )
                       ? "text-gold"
                       : "text-muted"
                   }
                 `}
-                aria-pressed={currentLanguage.startsWith("es")}
+                aria-pressed={currentLanguage.startsWith(
+                  "es",
+                )}
               >
                 ES
               </button>
 
-              <span className="text-white/30">|</span>
+              <span className="text-white/30">
+                |
+              </span>
 
               <button
                 type="button"
-                onClick={() => changeLanguage("en")}
+                onClick={() =>
+                  changeLanguage("en")
+                }
                 className={`
                   text-sm
                   tracking-[2px]
                   transition-colors
                   duration-300
                   hover:text-gold
+
                   ${
-                    currentLanguage.startsWith("en")
+                    currentLanguage.startsWith(
+                      "en",
+                    )
                       ? "text-gold"
                       : "text-muted"
                   }
                 `}
-                aria-pressed={currentLanguage.startsWith("en")}
+                aria-pressed={currentLanguage.startsWith(
+                  "en",
+                )}
               >
                 EN
               </button>

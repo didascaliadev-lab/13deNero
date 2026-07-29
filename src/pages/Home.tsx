@@ -25,7 +25,7 @@ return (
    mobileImagePosition="58% center"
    primaryButton={{
     label: t("home.hero.primaryButton"),
-    href: "/productos",
+    href: "/productos/misterio/",
    }}
    secondaryButton={{
     label: t("home.hero.secondaryButton"),

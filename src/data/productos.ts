@@ -32,7 +32,7 @@ export const productos: Producto[] = [
         "/fotos/productos/misterio/vistas/misterio4.webp",
       ],
 
-      momento: "/fotos/productos/misterio/momento1.webp",
+      momento: "/fotos/productos/misterio/momento.webp",
     },
   },
 
@@ -53,7 +53,7 @@ export const productos: Producto[] = [
         "/fotos/productos/nostalgia/vistas/nostalgia4.webp",
       ],
 
-      momento: "/fotos/productos/nostalgia/momento1.webp",
+      momento: "/fotos/productos/nostalgia/momento.webp",
     },
   },
 
@@ -74,7 +74,7 @@ export const productos: Producto[] = [
         "/fotos/productos/deseo/vistas/deseo4.webp",
       ],
 
-      momento: "/fotos/productos/deseo/momento1.webp",
+      momento: "/fotos/productos/deseo/momento.webp",
     },
   },
 
@@ -94,7 +94,7 @@ export const productos: Producto[] = [
         "/fotos/productos/alegria/vistas/alegria4.webp",
       ],
 
-      momento: "/fotos/productos/alegria/momento1.webp",
+      momento: "/fotos/productos/alegria/momento.webp",
     },
   },
 ];

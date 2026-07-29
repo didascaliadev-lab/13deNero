@@ -1,16 +1,12 @@
 import {
-  FaInstagram,
   FaFacebookF,
+  FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
-import Container from "../ui/Container";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const footerLinks = [
-  { label: "Inicio", href: "/#inicio" },
-  { label: "Productos", href: "/productos" },
-  { label: "Portal", href: "/portal" },
-  { label: "Contacto", href: "/contacto" },
-];
+import Container from "../ui/Container";
 
 const socialClass = `
 flex
@@ -30,10 +26,30 @@ hover:-translate-y-1
 `;
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-white/10 bg-[var(--color-bg)]">
-      <Container>
+  const { t } = useTranslation();
 
+  const footerLinks = [
+    {
+      label: t("footer.navigation.home"),
+      href: "/",
+    },
+    {
+      label: t("footer.navigation.products"),
+      href: "/productos/misterio",
+    },
+    {
+      label: t("footer.navigation.portal"),
+      href: "/portal",
+    },
+    {
+      label: t("footer.navigation.contact"),
+      href: "/contacto",
+    },
+  ];
+
+  return (
+    <footer className="border-t border-white/10 bg-bg">
+      <Container>
         <div className="grid gap-12 py-16 lg:grid-cols-3">
 
           {/* Marca */}
@@ -43,9 +59,8 @@ export default function Footer() {
               13 deNERO
             </h3>
 
-            <p className="mt-5 max-w-sm">
-              Mezcal artesanal elaborado respetando los tiempos,
-              la tierra y la tradición.
+            <p className="mt-5 max-w-sm text-text-muted">
+              {t("footer.description")}
             </p>
 
             <div className="mt-8 flex gap-4">
@@ -80,69 +95,69 @@ export default function Footer() {
           {/* Navegación */}
 
           <div>
-           
+            <h4 className="mb-6 text-lg text-text">
+              {t("footer.navigation.title")}
+            </h4>
 
             <nav className="flex flex-col gap-4">
-
               {footerLinks.map((item) => (
-                <a
+                <NavLink
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="
                     w-fit
-                    text-[var(--color-text-muted)]
+                    text-text-muted
                     transition-colors
                     duration-300
-                    hover:text-[var(--color-gold)]
+                    hover:text-gold
                   "
                 >
                   {item.label}
-                </a>
+                </NavLink>
               ))}
-
             </nav>
           </div>
 
-          {/* Legal */}
+          {/* Información */}
 
           <div>
-            <h4 className="mb-6 text-lg">
-              Información
+            <h4 className="mb-6 text-lg text-text">
+              {t("footer.information.title")}
             </h4>
 
             <div className="flex flex-col gap-4">
 
-              <a
-                href="/terminos"
+              <NavLink
+                to="/terminos"
                 className="
                   w-fit
-                  text-[var(--color-text-muted)]
+                  text-text-muted
                   transition-colors
-                  hover:text-[var(--color-gold)]
+                  hover:text-gold
                 "
               >
-                Términos y condiciones
-              </a>
+                {t("footer.information.terms")}
+              </NavLink>
 
-              <a
-                href="/privacidad"
+              <NavLink
+                to="/privacidad"
                 className="
                   w-fit
-                  text-[var(--color-text-muted)]
+                  text-text-muted
                   transition-colors
-                  hover:text-[var(--color-gold)]
+                  hover:text-gold
                 "
               >
-                Aviso de privacidad
-              </a>
+                {t("footer.information.privacy")}
+              </NavLink>
 
               <a
                 href="mailto:contacto@13denero.com"
                 className="
                   w-fit
-                  text-[var(--color-text-muted)]
+                  text-text-muted
                   transition-colors
-                  hover:text-[var(--color-gold)]
+                  hover:text-gold
                 "
               >
                 contacto@13denero.com
@@ -153,14 +168,16 @@ export default function Footer() {
 
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center text-sm text-[var(--color-text-muted)] md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center text-sm text-text-muted md:flex-row">
 
           <p>
-           13 deNero © {new Date().getFullYear()} Todos los derechos reservados.
+            {t("footer.copyright", {
+              year: new Date().getFullYear(),
+            })}
           </p>
 
           <p>
-            Prohibida la venta de bebidas alcohólicas a menores de edad.
+            {t("footer.alcoholWarning")}
           </p>
 
         </div>

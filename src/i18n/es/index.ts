@@ -12,6 +12,30 @@ const es = {
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
   },
+    footer: {
+    description:
+      "Mezcal artesanal elaborado respetando los tiempos, la tierra y la tradición.",
+
+    navigation: {
+      title: "Navegación",
+      home: "Inicio",
+      products: "Productos",
+      portal: "Portal",
+      contact: "Contacto",
+    },
+
+    information: {
+      title: "Información",
+      terms: "Términos y condiciones",
+      privacy: "Aviso de privacidad",
+    },
+
+    copyright:
+      "13 deNERO © {{year}} Todos los derechos reservados.",
+
+    alcoholWarning:
+      "Prohibida la venta de bebidas alcohólicas a menores de edad.",
+  },
   home: {
     hero:{
       title: "Mezcal 13 deNERO",
@@ -228,7 +252,7 @@ const es = {
         "Porque no hay una sola historia, ni una sola transformación. Cada alma vibra con sus propias emociones.",
 
       moment:
-        "Al caer la noche, justo cuando el azul profundo del crepúsculo aparece y lo que ves ya no es suficiente, necesitas adentrarte y descubrir.",
+        "Bajo el sol o en el instante en que la primera carcajada se asoma, cuando necesitas disfrutar y anclarte en el ahora.",
 
       ritual:
         "Sirve el mezcal, levántalo y nombra tres cosas que te hagan feliz en ese preciso momento. Brinda en voz alta por el presente.",
@@ -243,6 +267,385 @@ const es = {
       },
     },
   },
+},
+    contact: {
+      hero: {
+        eyebrow: "Contacto",
+        title: "Hablemos.",
+        description:
+        "Si deseas conocer nuestros mezcales, colaborar con nosotros o compartir una historia, estaremos encantados de escucharte.",
+      imageAlt:
+      "Paisaje y proceso artesanal del mezcal 13 deNERO",
+    },
+
+    details: {
+      eyebrow: "Mantengamos el vínculo",
+      title: "Toda historia comienza con una conversación.",
+      description:
+      "Escríbenos para conocer más sobre nuestros mezcales, puntos de venta, colaboraciones, experiencias y distribución.",
+
+      emailLabel: "Correo",
+      email: "contacto@13denero.com",
+
+      phoneLabel: "Teléfono",
+      phone: "+52 951 209 3313",
+      phoneLink: "+529512093313",
+
+      locationLabel: "Origen",
+      location: "Oaxaca, México",
+
+      scheduleLabel: "Atención",
+      schedule: "Lunes a viernes · 10:00 a 18:00",
+    },
+
+    form: {
+      eyebrow: "Escríbenos",
+      title: "Abre la conversación.",
+      description:
+      "Comparte con nosotros tus preguntas, ideas o propuestas. Cada mensaje es el inicio de un nuevo recorrido.",
+
+      name: "Tu nombre",
+      namePlaceholder: "Escribe tu nombre",
+
+      email: "Tu correo",
+      emailPlaceholder: "nombre@correo.com",
+
+      subject: "Asunto",
+      subjectPlaceholder: "¿Sobre qué deseas conversar?",
+
+      message: "¿Qué deseas compartir?",
+      messagePlaceholder:
+      "Cuéntanos cómo podemos acompañarte...",
+
+      submit: "Enviar mensaje",
+      sending: "Enviando...",
+      success:
+      "Tu mensaje ha sido recibido. Pronto continuaremos la conversación.",
+    },
+
+    closing: {
+      text:
+      "El mezcal reúne historias. La siguiente podría comenzar contigo.",
+    brand: "13 deNERO",
+  },
+},
+  portal: {
+    hero: {
+      eyebrow: "El Portal",
+      title: "Despierta tus sentidos.",
+      description:
+        "Elige un estado del alma y descubre sabores, aromas, sonidos, texturas y rituales creados para acompañar cada mezcal.",
+      imageAlt:
+        "Experiencia sensorial del estado del alma {{state}}",
+    },
+
+    common: {
+      selectedState: "Estado del alma",
+      character: "Personaje",
+      mezcal: "Mezcal",
+
+      pairingEyebrow: "Maridaje sensorial",
+      pairings: "Combina tu mezcal.",
+      pairingsDescription:
+        "Cada sabor fue elegido para revelar una dimensión distinta del mezcal y del estado del alma que lo acompaña.",
+
+      mainFlavor: "Sabor principal",
+      alternateFlavor: "Sabor alterno",
+
+      sensesEyebrow: "Los sentidos",
+      sensoryExperience: "Construye la atmósfera.",
+      smell: "Olor",
+      touch: "Tacto",
+      sight: "Vista",
+      hearing: "Audición",
+
+      experience: "La experiencia",
+      focus: "Enfoque",
+      closing: "Cierre",
+    },
+
+    experiences: {
+      misterio: {
+        state: "Misterio",
+        quote: "Lo que buscas está en los misterios de tu historia.",
+        character: "El Chamán del Valle Oculto",
+        mezcal: "Tepextate",
+
+        mainFlavor: {
+          items: [
+            "Chocolate oscuro",
+            "Chocolate oscuro con menta",
+          ],
+
+          description:
+            "El amargor y el tono terroso del cacao se alinean con la sombra interior, mientras que la menta, fresca y herbal, despierta los sentidos y abre la intuición.",
+        },
+
+        alternateFlavor: {
+          items: [
+            "Jícama o pepino",
+            "Sal de gusano",
+            "Rodaja de toronja",
+          ],
+        },
+
+        smell: {
+          items: ["Copal", "Sándalo"],
+
+          description:
+            "El humo denso crea una atmósfera de niebla y misterio, silenciando el ruido exterior y preparando la mente para la revelación.",
+        },
+
+        touch: {
+          items: [
+            "Agua fría en la muñeca",
+            "Amatista",
+            "Cuarzo morado",
+          ],
+        },
+
+        sight: {
+          items: ["Luz morada"],
+        },
+
+        hearing: {
+          items: [
+            "Sonidos de bosque",
+            "Susurros",
+            "Viento",
+            "Agua lejana",
+          ],
+        },
+
+        experience: {
+          title: "El Acto de la Pregunta",
+
+          description:
+            "Se pide a los participantes que sostengan la amatista y escriban en un papel oscuro una sola palabra que represente su mayor duda o enigma actual. Beben el mezcal y después reflexionan en silencio sobre la respuesta.",
+        },
+
+        focus: {
+          title: "Tocar la tierra",
+
+          description:
+            "Coloca una mano sobre la mesa o toca la piedra para anclar la energía terrenal.",
+        },
+
+        closing:
+          "La verdad que buscas reside en tu propia sombra. El mapa más valioso es el que lleva a tu propio abismo.",
+      },
+
+      deseo: {
+        state: "Deseo",
+        quote: "El umbral de la voluntad, de la energía inicial.",
+        character: "La Llama que Invoca",
+        mezcal: "Cuishe",
+
+        mainFlavor: {
+          items: [
+            "Chocolate oscuro con chile",
+            "Chocolate oscuro con alto porcentaje de cacao y miel picante",
+          ],
+
+          description:
+            "La cereza, vinculada con el rojo y la pasión, y el chile, asociado con el fuego y la acción, activan el paladar y se alinean con el deseo. La frescura de la jícama calma el fuego y permite encontrar claridad en el objetivo.",
+        },
+
+        alternateFlavor: {
+          items: [
+            "Cereza deshidratada con chipotle en polvo",
+            "Jícama",
+            "Lima o limón con sal de hormiga",
+            "Semillas de granada con romero fresco",
+          ],
+        },
+
+        smell: {
+          items: [
+            "Aceite esencial de canela",
+            "Aceite esencial de clavo de olor",
+          ],
+
+          description:
+            "Los aromas especiados y cálidos son estimulantes y sensuales, intensificando la energía de la pasión y la voluntad.",
+        },
+
+        touch: {
+          items: ["Sostener una piedra caliente"],
+        },
+
+        sight: {
+          items: ["Luz roja"],
+        },
+
+        hearing: {
+          items: ["Música ceremonial azteca moderna"],
+        },
+
+        experience: {
+          title: "El Acto de la Declaración",
+
+          description:
+            "Se entrega una cerilla a los participantes o se les pide que enciendan una vela roja. Deben nombrar en voz baja su deseo o el primer paso que tomarán para alcanzarlo. El acto de encender simboliza la activación de la voluntad.",
+        },
+
+        focus: {
+          title: "El gesto de la voluntad",
+
+          description:
+            "Cierra el puño en el momento de la declaración para sellar con el mezcal tu pacto de voluntad.",
+        },
+
+        closing:
+          "La pasión es el idioma de la acción. El deseo es la primera forma de la realidad.",
+      },
+
+      alegria: {
+        state: "Alegría",
+        quote: "El gozo es el camino más corto al presente.",
+        character: "El Joven de la Luz",
+        mezcal: "Espadín",
+
+        mainFlavor: {
+          items: [
+            "Piña asada con polvo de hormiga chicatana",
+            "Piña asada con sal cítrica de gusano",
+          ],
+
+          description:
+            "La piña, vinculada con el amarillo y el sol, resalta las notas frutales y dulces del mezcal Espadín. La sal chicatana añade un toque ácido y exótico que evita que el sabor sea plano.",
+        },
+
+        alternateFlavor: {
+          items: [
+            "Rodaja de naranja con canela en polvo",
+            "Gajos de manzana verde",
+            "Queso panela o queso fresco con pimienta rosa",
+          ],
+        },
+
+        smell: {
+          items: [
+            "Aceite esencial de limón",
+            "Aceite esencial de naranja",
+          ],
+
+          description:
+            "Los aromas cítricos y brillantes inducen la ligereza, la risa y el anclaje inmediato en el presente.",
+        },
+
+        touch: {
+          items: [
+            "Confeti dorado",
+            "Plumas ligeras",
+          ],
+        },
+
+        sight: {
+          items: [
+            "Luz clara",
+            "Colores vivos",
+          ],
+        },
+
+        hearing: {
+          items: [
+            "Música agradable",
+            "Sonidos espontáneos",
+          ],
+        },
+
+        experience: {
+          title: "El Acto de la Gratitud Simple",
+
+          description:
+            "Se pide a los participantes que levanten su copa y nombren ante la mesa tres cosas sencillas que los hicieron felices durante el día. El brindis colectivo sella la energía del Joven de la Luz y la conexión comunitaria.",
+        },
+
+        focus: {
+          title: "El contacto",
+
+          description:
+            "Después de beber, toca o choca tu copa con la de otra persona para sellar la unión y el gozo del presente.",
+        },
+
+        closing:
+          "El tesoro más grande es lo que sucede aquí y ahora. El gozo es el camino más corto al presente.",
+      },
+
+      nostalgia: {
+        state: "Nostalgia",
+        quote: "La nostalgia es la memoria de nuestra vida.",
+        character: "El Guerrero del Monte",
+        mezcal: "Tobalá",
+
+        mainFlavor: {
+          items: [
+            "Higos secos",
+            "Dátiles",
+            "Queso añejo fuerte",
+          ],
+
+          description:
+            "La dulzura concentrada del higo y el dátil representa la dulzura del recuerdo. El queso añejo complementa las notas minerales y terrosas del Tobalá, el agave del monte.",
+        },
+
+        alternateFlavor: {
+          items: [
+            "Naranja con cacao en polvo y sal",
+            "Nuez de la India",
+            "Almendra tostada",
+          ],
+        },
+
+        smell: {
+          items: [
+            "Aceite esencial de pachulí",
+            "Pino",
+            "Cedro",
+          ],
+
+          description:
+            "Un aroma terrenal y profundo que evoca el monte, la tierra y la sabiduría ancestral, ayudando a la reflexión serena.",
+        },
+
+        touch: {
+          items: [
+            "Frotar una hoja seca",
+            "Tocar una piedra con musgo",
+          ],
+        },
+
+        sight: {
+          items: ["Luz azul"],
+        },
+
+        hearing: {
+          items: [
+            "Sonidos de ecos",
+            "Lluvia",
+            "Canto melancólico suave",
+          ],
+        },
+
+        experience: {
+          title: "El Acto de la Honra y la Aceptación",
+
+          description:
+            "Se pide a los participantes que sostengan una copa de barro y piensen en un recuerdo que fue difícil, pero que hoy atesoran por lo que les enseñó. Beben y agradecen esa lección, transformando la añoranza en sabiduría.",
+        },
+
+        focus: {
+          title: "El gesto de la gratitud",
+
+          description:
+            "Después de beber, lleva la mano al corazón y realiza una reverencia mental por el recuerdo que decidiste honrar.",
+        },
+
+        closing:
+          "Lo que añoras es la prueba de lo que amaste. La nostalgia es la memoria con el corazón.",
+      },
+    },
 },
 };
 

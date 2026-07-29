@@ -28,7 +28,7 @@ export default function HeroProducto({
         relative
         min-h-[680px]
         overflow-hidden
-        bg-bg
+        bg-black
         sm:min-h-[720px]
         lg:min-h-screen
       "
@@ -48,9 +48,15 @@ export default function HeroProducto({
         />
       </picture>
 
-      <div className="absolute inset-0 bg-black/15" />
-
+      {/* Oscurecimiento general */}
       <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-black/15"
+      />
+
+      {/* Lectura del texto */}
+      <div
+        aria-hidden="true"
         className="
           absolute
           inset-0
@@ -61,14 +67,35 @@ export default function HeroProducto({
         "
       />
 
+      {/* Profundidad superior */}
       <div
+        aria-hidden="true"
         className="
           absolute
           inset-0
-          bg-gradient-to-t
-          from-bg
+          bg-gradient-to-b
+          from-black/30
           via-transparent
-          to-black/20
+          to-transparent
+        "
+      />
+
+      {/* Transición orgánica hacia la siguiente sección */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          z-[2]
+          h-64
+          bg-gradient-to-b
+          from-transparent
+          via-black/55
+          to-black
+          sm:h-72
+          lg:h-80
         "
       />
 
@@ -80,10 +107,10 @@ export default function HeroProducto({
           flex
           min-h-[680px]
           items-end
-          pb-16
+          pb-24
           pt-32
           sm:min-h-[720px]
-          sm:pb-20
+          sm:pb-28
           lg:min-h-screen
           lg:items-center
           lg:py-32
@@ -186,8 +213,6 @@ export default function HeroProducto({
               <span>{tipo}</span>
             </div>
           </div>
-
-         
         </div>
       </Container>
     </section>
