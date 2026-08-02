@@ -5,6 +5,8 @@ import Portal from './pages/Portal';
 import Producto from "./pages/Producto";
 import Contacto from './pages/Contacto';
 import Tienda from './pages/Tienda';
+import Terminos from './pages/Terminos';
+import Privacidad from './pages/Privacidad';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import { Routes, Route } from "react-router-dom";
@@ -25,8 +27,17 @@ function App() {
         <Route path="/portal" element={<Portal />} />
         <Route path="/tienda" element={<Tienda />} />
         <Route path="/contacto" element={<Contacto />} />
+         <Route
+          path="/terminos"
+          element={<Terminos />}
+        />
+
+        <Route
+          path="/privacidad"
+          element={<Privacidad />}
+        />
       </Routes>
-      
+     
       <Footer/>
     </>
   );

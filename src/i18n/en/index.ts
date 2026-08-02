@@ -655,6 +655,372 @@ const en = {
         },
       },
     },
+    legal: {
+  common: {
+    backHome: "Back to home",
+    lastUpdate: "Last updated",
+    contents: "Contents",
+  },
+
+  terms: {
+    eyebrow: "Legal information",
+    title: "Terms and Conditions",
+    description:
+      "This document establishes the general conditions for accessing, browsing and using the 13 deNERO website.",
+    updatedAt: "July 29, 2026",
+
+    sections: {
+      purpose: {
+        title: "Purpose of the website",
+        paragraph1:
+          "This website is intended to present the identity, history, philosophy, processes, sensory experiences and products associated with 13 deNERO.",
+        paragraph2:
+          "The website also provides communication channels through which interested individuals may request information about the brand, its products, availability, experiences and contact methods.",
+      },
+
+      acceptance: {
+        title: "Acceptance of these terms",
+        paragraph1:
+          "Accessing, browsing or using this website means that the user has read and accepted these Terms and Conditions.",
+        paragraph2:
+          "Anyone who disagrees with any provision should refrain from using the website and its contact services.",
+      },
+
+      siteUse: {
+        title: "Permitted use",
+        paragraph1:
+          "Users agree to use the website lawfully, responsibly and respectfully. The following actions are prohibited:",
+        bullet1:
+          "Using the website or its content for activities contrary to applicable law.",
+        bullet2:
+          "Attempting to access restricted systems, servers, databases or areas without authorization.",
+        bullet3:
+          "Introducing viruses, malicious programs or any element capable of disrupting the website.",
+        bullet4:
+          "Copying, modifying, distributing or commercially exploiting content without prior authorization.",
+        bullet5:
+          "Using the website in a manner that may harm the reputation, image or rights of 13 deNERO or third parties.",
+      },
+
+      age: {
+        title: "Legal drinking age and responsible consumption",
+        paragraph1:
+          "This website is intended exclusively for individuals of legal drinking age under the laws applicable in their place of residence.",
+        paragraph2:
+          "Information relating to mezcal and alcoholic beverages is provided for informational, cultural and brand presentation purposes.",
+        paragraph3:
+          "13 deNERO promotes responsible consumption. Access to the website is not an invitation to excessive drinking or consumption by minors.",
+      },
+
+      products: {
+        title: "Product information",
+        paragraph1:
+          "Photographs, illustrations, descriptions, characteristics and product presentations are for informational purposes and may be modified without notice.",
+        paragraph2:
+          "Because mezcal is handcrafted, reasonable variations may occur between batches, including differences in color, aroma, sensory profile, alcohol content, presentation, availability, bottle or packaging.",
+        paragraph3:
+          "The publication of a product does not guarantee stock, immediate availability or delivery to a particular location.",
+      },
+
+      requests: {
+        title: "Information and acquisition requests",
+        paragraph1:
+          "At this stage, requests regarding availability or the possible acquisition of products are handled personally through the official 13 deNERO communication channels.",
+        paragraph2:
+          "Information published on the website does not constitute a binding offer, confirmed sale or guarantee of availability.",
+        paragraph3:
+          "Any condition relating to availability, quantity, delivery, price or payment must be expressly communicated and accepted by the parties through official channels.",
+        paragraph4:
+          "If an online store, reservation service or payment gateway is implemented in the future, these Terms and Conditions will be updated before those services are enabled.",
+      },
+
+      intellectualProperty: {
+        title: "Intellectual property",
+        paragraph1:
+          "Content available on this website is owned by 13 deNERO, used with permission from its respective owners or protected by applicable intellectual property laws.",
+        paragraph2:
+          "Protected elements may include, without limitation:",
+        bullet1: "The brand name, designations and distinctive elements.",
+        bullet2: "Logos, symbols, emblems and visual identity.",
+        bullet3: "Photographs, illustrations, videos and audiovisual works.",
+        bullet4: "Texts, stories, manifestos and product descriptions.",
+        bullet5: "The website design, structure, interface and visual composition.",
+        bullet6: "Characters, concepts and sensory experiences.",
+        bullet7: "Advertising, editorial and promotional materials.",
+        bullet8: "Original code, components and technological elements.",
+      },
+
+      trademarks: {
+        title: "Trademarks and distinctive signs",
+        paragraph1:
+          "The appearance of names, logos or distinctive signs on the website does not grant the user any license or authorization to use them.",
+        paragraph2:
+          "These elements may not be used in a way that creates confusion, improper association, unauthorized commercial benefit or infringement of their owners’ rights.",
+      },
+
+      userContent: {
+        title: "Messages and user-submitted content",
+        paragraph1:
+          "Users are responsible for ensuring that information submitted through forms, email, WhatsApp or other channels is lawful, accurate and does not infringe third-party rights.",
+        paragraph2:
+          "Users should not send unnecessary sensitive or confidential information, illegal, offensive, misleading or discriminatory content, or content that infringes intellectual property rights.",
+      },
+
+      externalLinks: {
+        title: "External links and third-party services",
+        paragraph1:
+          "The website may contain links to social networks, messaging services, hosting platforms, maps or websites managed by third parties.",
+        paragraph2:
+          "13 deNERO does not control these services and is not responsible for their availability, content, security, terms or privacy practices.",
+      },
+
+      availability: {
+        title: "Website availability",
+        paragraph1:
+          "13 deNERO seeks to keep the website available and updated but does not guarantee uninterrupted, error-free operation or compatibility with every device and browser.",
+        paragraph2:
+          "The website may be temporarily suspended due to maintenance, updates, technical failures, force majeure or circumstances outside the brand’s control.",
+      },
+
+      liability: {
+        title: "Limitation of liability",
+        paragraph1:
+          "Website information is provided in good faith and for general purposes. It must not be interpreted as legal, medical, financial, technical or professional advice.",
+        paragraph2:
+          "13 deNERO will not be responsible for decisions made solely on the basis of published information or for damages arising from improper use of the website or third-party services.",
+        paragraph3:
+          "Nothing in these terms is intended to exclude liabilities that cannot lawfully be limited.",
+      },
+
+      privacy: {
+        title: "Privacy and personal information",
+        paragraph1:
+          "Personal information provided through the website will be processed in accordance with the current Privacy Notice.",
+        paragraph2:
+          "Users should review that notice before submitting information through forms, email, messaging services or any other contact channel.",
+      },
+
+      changes: {
+        title: "Changes to these terms",
+        paragraph1:
+          "13 deNERO may amend these Terms and Conditions to reflect changes to the website, services, operations or applicable law.",
+        paragraph2:
+          "The current version will be the one published on this page together with its last-update date.",
+      },
+
+      law: {
+        title: "Applicable law",
+        paragraph1:
+          "These Terms and Conditions will be interpreted in accordance with the applicable laws of the United Mexican States.",
+        paragraph2:
+          "Any dispute should initially be addressed through direct, good-faith communication, without prejudice to any applicable legal rights or remedies.",
+      },
+
+      contact: {
+        title: "Contact",
+        paragraph1:
+          "For questions relating to these Terms and Conditions, please contact:",
+      },
+    },
+  },
+
+  privacy: {
+    eyebrow: "Data protection",
+    title: "Privacy Notice",
+    description:
+      "This notice explains how personal information provided through the 13 deNERO website is collected, used, protected and retained.",
+    updatedAt: "July 29, 2026",
+
+    sections: {
+      responsible: {
+        title: "Identity of the data controller",
+        paragraph1:
+          "13 deNERO, is the data controller for personal information collected through this website and its official communication channels.",
+        //paragraph2:"Controller’s address: [FULL ADDRESS OF THE DATA CONTROLLER].",
+      },
+
+      personalData: {
+        title: "Personal information we may collect",
+        paragraph1:
+          "Depending on how a person interacts with the website, we may collect:",
+        bullet1: "First and last name.",
+        bullet2: "Email address.",
+        bullet3: "Telephone number, when voluntarily provided.",
+        bullet4: "City, state or general location associated with an inquiry.",
+        bullet5:
+          "Information voluntarily included in forms, messages, emails or conversations.",
+      },
+
+      technicalData: {
+        title: "Technical and browsing information",
+        paragraph1:
+          "Certain technical information may be generated or collected automatically, depending on the website configuration and technology providers:",
+        bullet1: "IP address.",
+        bullet2: "Browser and operating system.",
+        bullet3: "Device type.",
+        bullet4: "Language and time zone.",
+        bullet5:
+          "Pages visited, approximate session duration and website performance information.",
+      },
+
+      sensitiveData: {
+        title: "Sensitive personal information",
+        paragraph1:
+          "13 deNERO does not intentionally request sensitive personal information through this website.",
+        paragraph2:
+          "Users should avoid submitting unnecessary information relating to health, ethnicity, religion, political opinions, sexual orientation, biometrics or other sensitive matters.",
+      },
+
+      primaryPurposes: {
+        title: "Primary purposes",
+        paragraph1:
+          "Personal information may be processed for the following necessary purposes:",
+        bullet1: "Responding to messages, inquiries and contact requests.",
+        bullet2: "Providing information about the brand and its products.",
+        bullet3: "Handling product availability inquiries.",
+        bullet4: "Following up on conversations initiated by the individual.",
+        bullet5: "Maintaining website security and technical operation.",
+        bullet6:
+          "Complying with legal obligations and responding to competent authorities.",
+      },
+
+      secondaryPurposes: {
+        title: "Secondary purposes",
+        paragraph1:
+          "Where appropriate and with consent, information may also be used for:",
+        paragraph2:
+          "Individuals may request at any time that their information not be used for these additional purposes.",
+        bullet1: "Sending news, invitations or promotional information.",
+        bullet2: "Producing statistical analysis of website usage.",
+        bullet3: "Improving content, design and the browsing experience.",
+      },
+
+      consent: {
+        title: "Consent",
+        paragraph1:
+          "By voluntarily submitting information through forms, email, WhatsApp or other official channels, the individual acknowledges this Privacy Notice and consents to processing necessary to respond to the request.",
+        paragraph2:
+          "Where express consent or additional authorization is legally required, it will be requested through an appropriate mechanism.",
+      },
+
+      transfers: {
+        title: "Data transfers",
+        paragraph1:
+          "13 deNERO does not sell, rent or trade personal information.",
+        paragraph2:
+          "Information may only be disclosed when necessary and permitted by applicable law, including:",
+        bullet1: "Compliance with a legal obligation.",
+        bullet2: "Responding to a competent authority.",
+        bullet3:
+          "Protecting the rights, security or legitimate interests of the controller or third parties.",
+        bullet4: "Where the individual has provided consent.",
+      },
+
+      processors: {
+        title: "Service providers and processors",
+        paragraph1:
+          "Website operations may involve hosting, email, forms, security, analytics, messaging or technology infrastructure providers.",
+        paragraph2:
+          "These providers may process information on behalf of the controller only to provide their services and in accordance with contractual and legal duties.",
+      },
+
+      retention: {
+        title: "Retention",
+        paragraph1:
+          "Personal information will be retained for the period reasonably necessary to fulfil the purposes described, follow up on the relationship and comply with legal obligations.",
+        paragraph2:
+          "When no longer necessary, information will be deleted, blocked or anonymized according to applicable technical capabilities and legal requirements.",
+      },
+
+      security: {
+        title: "Security measures",
+        paragraph1:
+          "13 deNERO will implement reasonable administrative, technical and physical measures to protect information against damage, loss, alteration, destruction or unauthorized access and processing.",
+        paragraph2:
+          "No electronic transmission or storage system is completely infallible. Absolute security therefore cannot be guaranteed, although reasonable and proportionate safeguards will be pursued.",
+      },
+
+      arco: {
+        title: "ARCO rights",
+        paragraph1:
+          "Individuals may exercise the following rights regarding their personal information:",
+        bullet1:
+          "Access: learn what personal information is held and how it is processed.",
+        bullet2:
+          "Rectification: request correction of inaccurate or incomplete information.",
+        bullet3:
+          "Cancellation: request deletion or blocking where legally appropriate.",
+        bullet4:
+          "Objection: request that information not be processed for certain purposes.",
+      },
+
+      arcoRequest: {
+        title: "How to exercise ARCO rights",
+        paragraph1:
+          "Requests should be sent to the email address stated in this notice and include:",
+        bullet1: "The individual’s name.",
+        bullet2: "A means of receiving notices regarding the request.",
+        bullet3:
+          "A clear description of the right being exercised and the relevant information.",
+        bullet4:
+          "Documents proving identity or representation, where necessary.",
+        bullet5:
+          "Any information that may help locate the relevant records.",
+      },
+
+      revocation: {
+        title: "Withdrawal and restriction of consent",
+        paragraph1:
+          "Individuals may request withdrawal of consent or restriction of the use and disclosure of their information through the email address stated in this notice.",
+        paragraph2:
+          "Withdrawal will not have retroactive effects and may not apply where processing is required to comply with a legal obligation or maintain an existing legal relationship.",
+      },
+
+      cookies: {
+        title: "Cookies and similar technologies",
+        paragraph1:
+          "The website may use cookies or similar technologies to remember language preferences, confirm legal drinking age, provide essential functionality, analyze performance or improve browsing.",
+        paragraph2:
+          "Some cookies may be necessary for basic operation. Analytics or advertising tools should only be added where an appropriate basis exists and users are informed.",
+        paragraph3:
+          "Users may configure their browser to block or delete cookies, although this may affect certain website features.",
+      },
+
+      thirdPartySites: {
+        title: "Third-party websites and platforms",
+        paragraph1:
+          "The website may include links to Instagram, Facebook, WhatsApp or other external platforms.",
+        paragraph2:
+          "Processing performed by these platforms is governed by their own notices and policies. 13 deNERO does not control their privacy practices.",
+      },
+
+      minors: {
+        title: "Information relating to minors",
+        paragraph1:
+          "The website is intended for adults and does not intentionally seek to collect information from minors.",
+        paragraph2:
+          "If information from a minor is identified without the appropriate authorization, it may be deleted as soon as reasonably possible.",
+      },
+
+      changes: {
+        title: "Changes to this notice",
+        paragraph1:
+          "This Privacy Notice may be amended to reflect legal, operational, technological or service-related changes.",
+        paragraph2:
+          "The current version will remain available on this page together with its last-update date.",
+      },
+
+      contact: {
+        title: "Privacy contact",
+        paragraph1:
+          "For inquiries or requests relating to personal information, please use the following details:",
+        responsibleLabel: "Data controller",
+        addressLabel: "Address",
+        emailLabel: "Email",
+      },
+    },
+  },
+},
 };
 
 export default en;

@@ -647,6 +647,374 @@ const es = {
       },
     },
 },
+legal: {
+  common: {
+    backHome: "Volver al inicio",
+    lastUpdate: "Última actualización",
+    contents: "Contenido",
+  },
+
+  terms: {
+    eyebrow: "Información legal",
+    title: "Términos y condiciones",
+    description:
+      "Este documento establece las condiciones generales de acceso, navegación y uso del sitio web de 13 deNERO.",
+    updatedAt: "29 de julio de 2026",
+
+    sections: {
+      purpose: {
+        title: "Objeto del sitio",
+        paragraph1:
+          "El presente sitio web tiene como finalidad presentar la identidad, historia, filosofía, procesos, experiencias sensoriales y productos asociados con 13 deNERO.",
+        paragraph2:
+          "El sitio también ofrece canales de comunicación para que las personas interesadas puedan solicitar información sobre la marca, sus productos, disponibilidad, experiencias y formas de contacto.",
+      },
+
+      acceptance: {
+        title: "Aceptación de los términos",
+        paragraph1:
+          "El acceso, navegación y uso de este sitio implica que la persona usuaria ha leído y acepta los presentes Términos y Condiciones.",
+        paragraph2:
+          "Si la persona usuaria no está de acuerdo con alguna de estas disposiciones, deberá abstenerse de utilizar el sitio y sus servicios de contacto.",
+      },
+
+      siteUse: {
+        title: "Uso permitido del sitio",
+        paragraph1:
+          "La persona usuaria se compromete a utilizar el sitio de manera lícita, responsable y respetuosa. Queda prohibido:",
+        bullet1:
+          "Utilizar el sitio o sus contenidos para realizar actividades contrarias a la legislación aplicable.",
+        bullet2:
+          "Intentar acceder sin autorización a sistemas, servidores, bases de datos o secciones restringidas.",
+        bullet3:
+          "Introducir virus, programas maliciosos o cualquier elemento capaz de alterar el funcionamiento del sitio.",
+        bullet4:
+          "Copiar, modificar, distribuir o explotar comercialmente sus contenidos sin autorización previa.",
+        bullet5:
+          "Utilizar el sitio de una manera que pueda dañar la imagen, reputación o derechos de 13 deNERO o de terceros.",
+      },
+
+      age: {
+        title: "Mayoría de edad y consumo responsable",
+        paragraph1:
+          "Este sitio está dirigido exclusivamente a personas mayores de edad conforme a la legislación aplicable en su lugar de residencia.",
+        paragraph2:
+          "La información relacionada con mezcal y bebidas alcohólicas se proporciona con fines informativos, culturales y de presentación de marca.",
+        paragraph3:
+          "13 deNERO promueve el consumo responsable. El acceso al sitio no constituye una invitación al consumo excesivo ni al consumo por personas menores de edad.",
+      },
+
+      products: {
+        title: "Información sobre los productos",
+        paragraph1:
+          "Las fotografías, ilustraciones, descripciones, características y presentaciones de los productos son informativas y pueden modificarse sin previo aviso.",
+        paragraph2:
+          "Debido a la naturaleza artesanal del mezcal, pueden existir variaciones razonables entre lotes, incluyendo cambios de tonalidad, aroma, perfil sensorial, graduación, presentación, disponibilidad o características de la botella y el empaque.",
+        paragraph3:
+          "La publicación de un producto en el sitio no garantiza su existencia, disponibilidad inmediata ni posibilidad de entrega en una ubicación determinada.",
+      },
+
+      requests: {
+        title: "Solicitudes de información y adquisición",
+        paragraph1:
+          "Actualmente, las solicitudes relacionadas con disponibilidad o posible adquisición de productos se atienden de manera personalizada mediante los canales oficiales de 13 deNERO.",
+        paragraph2:
+          "La información publicada en este sitio no constituye por sí misma una oferta vinculante, una confirmación de venta ni una garantía de disponibilidad.",
+        paragraph3:
+          "Cualquier condición relacionada con disponibilidad, cantidades, entrega, precio o forma de pago deberá ser comunicada y aceptada expresamente entre las partes a través de los canales oficiales.",
+        paragraph4:
+          "En caso de que posteriormente se incorpore una tienda en línea, un sistema de reservación o una pasarela de pago, estos Términos y Condiciones serán actualizados antes de habilitar dichos servicios.",
+      },
+
+      intellectualProperty: {
+        title: "Propiedad intelectual",
+        paragraph1:
+          "Los contenidos disponibles en este sitio son propiedad de 13 deNERO, se utilizan con autorización de sus titulares o están protegidos por las disposiciones aplicables en materia de propiedad intelectual.",
+        paragraph2:
+          "Sin limitar otros elementos, la protección puede comprender:",
+        bullet1: "El nombre, denominaciones y elementos distintivos de la marca.",
+        bullet2: "Logotipos, símbolos, emblemas e identidad gráfica.",
+        bullet3: "Fotografías, ilustraciones, videos y piezas audiovisuales.",
+        bullet4: "Textos, relatos, manifiestos y descripciones de producto.",
+        bullet5: "Diseño, estructura, interfaz y composición visual del sitio.",
+        bullet6: "Personajes, conceptos y experiencias sensoriales.",
+        bullet7: "Material publicitario, editorial y promocional.",
+        bullet8: "Código, componentes y elementos tecnológicos originales.",
+      },
+
+      trademarks: {
+        title: "Marcas y signos distintivos",
+        paragraph1:
+          "La presencia de nombres, logotipos o signos distintivos dentro del sitio no concede a la persona usuaria licencia o autorización alguna para utilizarlos.",
+        paragraph2:
+          "Queda prohibido emplear dichos elementos de forma que genere confusión, asociación indebida, aprovechamiento comercial no autorizado o afectación a los derechos de sus titulares.",
+      },
+
+      userContent: {
+        title: "Mensajes y contenido enviado por usuarios",
+        paragraph1:
+          "La persona usuaria es responsable de que la información enviada mediante formularios, correo electrónico, WhatsApp u otros canales sea lícita, veraz y no vulnere derechos de terceros.",
+        paragraph2:
+          "No deberán enviarse datos sensibles, información confidencial innecesaria, contenido ilegal, ofensivo, engañoso, discriminatorio o que infrinja derechos de propiedad intelectual.",
+      },
+
+      externalLinks: {
+        title: "Enlaces y servicios de terceros",
+        paragraph1:
+          "El sitio puede contener enlaces a redes sociales, servicios de mensajería, plataformas de alojamiento, mapas u otros sitios administrados por terceros.",
+        paragraph2:
+          "13 deNERO no controla dichos servicios y no es responsable de su disponibilidad, contenido, seguridad, términos de uso o políticas de privacidad. La persona usuaria deberá revisar las condiciones aplicables en cada plataforma externa.",
+      },
+
+      availability: {
+        title: "Disponibilidad y funcionamiento",
+        paragraph1:
+          "13 deNERO procura mantener el sitio disponible y actualizado, pero no garantiza que funcione de forma ininterrumpida, libre de errores o compatible con todos los dispositivos y navegadores.",
+        paragraph2:
+          "El sitio puede suspenderse temporalmente por mantenimiento, actualizaciones, fallas técnicas, causas de fuerza mayor o circunstancias ajenas al control de la marca.",
+      },
+
+      liability: {
+        title: "Limitación de responsabilidad",
+        paragraph1:
+          "La información del sitio se ofrece de buena fe y con carácter general. No debe interpretarse como asesoría legal, médica, financiera, técnica o profesional.",
+        paragraph2:
+          "13 deNERO no será responsable por decisiones tomadas exclusivamente con base en la información publicada, ni por daños derivados del uso incorrecto del sitio o de servicios administrados por terceros.",
+        paragraph3:
+          "Nada de lo dispuesto en estos términos pretende excluir responsabilidades que no puedan limitarse legalmente.",
+      },
+
+      privacy: {
+        title: "Privacidad y datos personales",
+        paragraph1:
+          "El tratamiento de los datos personales proporcionados mediante el sitio se realizará conforme al Aviso de Privacidad vigente.",
+        paragraph2:
+          "La persona usuaria deberá consultar dicho aviso antes de enviar información mediante formularios, correo electrónico, mensajería o cualquier otro canal de contacto.",
+      },
+
+      changes: {
+        title: "Modificaciones",
+        paragraph1:
+          "13 deNERO podrá modificar estos Términos y Condiciones para reflejar cambios en el sitio, sus servicios, su operación o la legislación aplicable.",
+        paragraph2:
+          "La versión vigente será la publicada en esta página, junto con su fecha de última actualización. El uso del sitio después de una modificación implica la aceptación de la nueva versión.",
+      },
+
+      law: {
+        title: "Legislación aplicable",
+        paragraph1:
+          "Estos Términos y Condiciones se interpretarán conforme a la legislación aplicable de los Estados Unidos Mexicanos.",
+        paragraph2:
+          "Cualquier controversia se procurará resolver inicialmente mediante comunicación directa y de buena fe, sin perjuicio de los derechos y mecanismos legales que correspondan.",
+      },
+
+      contact: {
+        title: "Contacto",
+        paragraph1:
+          "Para realizar consultas relacionadas con estos Términos y Condiciones, puede comunicarse mediante el siguiente correo electrónico:",
+      },
+    },
+  },
+
+  privacy: {
+    eyebrow: "Protección de datos",
+    title: "Aviso de privacidad",
+    description:
+      "Este aviso explica cómo se recaban, utilizan, protegen y conservan los datos personales proporcionados a través del sitio de 13 deNERO.",
+    updatedAt: "29 de julio de 2026",
+
+    sections: {
+      responsible: {
+        title: "Identidad del responsable",
+        paragraph1:
+          "13 deNERO, es responsable del tratamiento y protección de los datos personales recabados mediante este sitio web y sus canales oficiales de contacto.",
+        //paragraph2:"Domicilio del responsable: [DOMICILIO COMPLETO DEL RESPONSABLE].",
+      },
+
+      personalData: {
+        title: "Datos personales que podemos recabar",
+        paragraph1:
+          "Dependiendo de la manera en que la persona titular interactúe con el sitio, podremos recabar los siguientes datos:",
+        bullet1: "Nombre y apellidos.",
+        bullet2: "Dirección de correo electrónico.",
+        bullet3: "Número telefónico, cuando sea proporcionado voluntariamente.",
+        bullet4: "Ciudad, estado o ubicación general relacionada con una consulta.",
+        bullet5:
+          "Información contenida en mensajes, formularios, correos o conversaciones enviadas voluntariamente.",
+      },
+
+      technicalData: {
+        title: "Datos técnicos y de navegación",
+        paragraph1:
+          "Al navegar por el sitio pueden generarse o recopilarse automáticamente ciertos datos técnicos, dependiendo de la configuración y de los servicios tecnológicos utilizados:",
+        bullet1: "Dirección IP.",
+        bullet2: "Tipo de navegador y sistema operativo.",
+        bullet3: "Tipo de dispositivo.",
+        bullet4: "Idioma y zona horaria.",
+        bullet5:
+          "Páginas visitadas, duración aproximada de la sesión y datos relacionados con el funcionamiento del sitio.",
+      },
+
+      sensitiveData: {
+        title: "Datos personales sensibles",
+        paragraph1:
+          "13 deNERO no solicita intencionalmente datos personales sensibles mediante este sitio.",
+        paragraph2:
+          "La persona titular deberá evitar incluir en formularios o mensajes información sobre salud, origen étnico, religión, opiniones políticas, orientación sexual, información biométrica u otros datos sensibles que no sean necesarios para atender su solicitud.",
+      },
+
+      primaryPurposes: {
+        title: "Finalidades primarias",
+        paragraph1:
+          "Los datos personales podrán tratarse para las siguientes finalidades necesarias:",
+        bullet1: "Responder mensajes, dudas y solicitudes de contacto.",
+        bullet2: "Proporcionar información sobre la marca y sus productos.",
+        bullet3: "Atender solicitudes relacionadas con disponibilidad.",
+        bullet4: "Dar seguimiento a conversaciones iniciadas por la persona titular.",
+        bullet5: "Mantener la seguridad y funcionamiento técnico del sitio.",
+        bullet6:
+          "Cumplir obligaciones legales y atender requerimientos de autoridades competentes.",
+      },
+
+      secondaryPurposes: {
+        title: "Finalidades secundarias",
+        paragraph1:
+          "Cuando corresponda y exista consentimiento, los datos también podrán utilizarse para finalidades adicionales:",
+        paragraph2:
+          "La persona titular podrá solicitar en cualquier momento que sus datos no sean utilizados para estas finalidades.",
+        bullet1: "Enviar novedades, invitaciones o información promocional.",
+        bullet2: "Realizar análisis estadísticos sobre el uso del sitio.",
+        bullet3: "Mejorar contenidos, diseño y experiencia de navegación.",
+      },
+
+      consent: {
+        title: "Consentimiento",
+        paragraph1:
+          "Al proporcionar voluntariamente sus datos mediante formularios, correo electrónico, WhatsApp u otros canales oficiales, la persona titular reconoce haber leído este Aviso de Privacidad y consiente el tratamiento necesario para atender su solicitud.",
+        paragraph2:
+          "Cuando la legislación requiera consentimiento expreso o una autorización adicional, esta se solicitará mediante el mecanismo correspondiente.",
+      },
+
+      transfers: {
+        title: "Transferencias de datos",
+        paragraph1:
+          "13 deNERO no vende, renta ni comercializa datos personales.",
+        paragraph2:
+          "Los datos podrán comunicarse únicamente cuando sea necesario y permitido por la legislación aplicable, por ejemplo:",
+        bullet1: "Para cumplir una obligación legal.",
+        bullet2: "Para responder a una autoridad competente.",
+        bullet3:
+          "Para proteger derechos, seguridad o intereses legítimos del responsable o de terceros.",
+        bullet4:
+          "Cuando la persona titular haya otorgado su consentimiento.",
+      },
+
+      processors: {
+        title: "Proveedores y encargados",
+        paragraph1:
+          "Para operar el sitio pueden utilizarse proveedores de alojamiento web, correo electrónico, formularios, seguridad, analítica, mensajería o infraestructura tecnológica.",
+        paragraph2:
+          "Estos proveedores podrán procesar datos por cuenta del responsable únicamente para prestar sus servicios y conforme a sus obligaciones contractuales y legales.",
+      },
+
+      retention: {
+        title: "Conservación de los datos",
+        paragraph1:
+          "Los datos personales se conservarán durante el tiempo razonablemente necesario para cumplir las finalidades descritas, dar seguimiento a la relación con la persona titular y atender obligaciones legales.",
+        paragraph2:
+          "Cuando los datos dejen de ser necesarios, serán eliminados, bloqueados o anonimizados conforme a las capacidades técnicas y obligaciones aplicables.",
+      },
+
+      security: {
+        title: "Medidas de seguridad",
+        paragraph1:
+          "13 deNERO implementará medidas administrativas, técnicas y físicas razonables para proteger los datos contra daño, pérdida, alteración, destrucción, acceso o tratamiento no autorizado.",
+        paragraph2:
+          "Ningún sistema de transmisión o almacenamiento electrónico es completamente infalible. Por ello, no puede garantizarse seguridad absoluta, aunque se procurará actuar de forma diligente y proporcional.",
+      },
+
+      arco: {
+        title: "Derechos ARCO",
+        paragraph1:
+          "La persona titular podrá ejercer los siguientes derechos respecto de sus datos personales:",
+        bullet1:
+          "Acceso: conocer qué datos personales se conservan y cómo son tratados.",
+        bullet2:
+          "Rectificación: solicitar la corrección de datos inexactos o incompletos.",
+        bullet3:
+          "Cancelación: solicitar la eliminación o bloqueo de los datos cuando resulte procedente.",
+        bullet4:
+          "Oposición: solicitar que los datos no sean tratados para determinadas finalidades.",
+      },
+
+      arcoRequest: {
+        title: "Procedimiento para ejercer derechos ARCO",
+        paragraph1:
+          "La solicitud deberá enviarse al correo indicado en este aviso e incluir, al menos:",
+        bullet1: "Nombre de la persona titular.",
+        bullet2:
+          "Medio para recibir notificaciones relacionadas con la solicitud.",
+        bullet3:
+          "Descripción clara del derecho que desea ejercer y de los datos involucrados.",
+        bullet4:
+          "Documentos que permitan acreditar su identidad o representación, cuando resulte necesario.",
+        bullet5:
+          "Cualquier información que facilite la localización de los datos.",
+      },
+
+      revocation: {
+        title: "Revocación y limitación del consentimiento",
+        paragraph1:
+          "La persona titular podrá solicitar la revocación de su consentimiento o la limitación del uso y divulgación de sus datos mediante el correo señalado en este aviso.",
+        paragraph2:
+          "La revocación no tendrá efectos retroactivos y podrá no proceder cuando el tratamiento sea necesario para cumplir una obligación legal o mantener una relación jurídica vigente.",
+      },
+
+      cookies: {
+        title: "Cookies y tecnologías similares",
+        paragraph1:
+          "El sitio puede utilizar cookies o tecnologías similares para recordar preferencias de idioma, verificar la mayoría de edad, mantener funciones esenciales, analizar el desempeño o mejorar la experiencia de navegación.",
+        paragraph2:
+          "Algunas cookies pueden ser necesarias para el funcionamiento básico del sitio. Otras herramientas de analítica o publicidad solo deberán incorporarse cuando exista una base adecuada y se informe a la persona usuaria.",
+        paragraph3:
+          "La persona usuaria puede configurar su navegador para bloquear o eliminar cookies. Esto podría afectar algunas funciones del sitio.",
+      },
+
+      thirdPartySites: {
+        title: "Sitios y plataformas de terceros",
+        paragraph1:
+          "El sitio puede incluir enlaces a Instagram, Facebook, WhatsApp u otras plataformas externas.",
+        paragraph2:
+          "El tratamiento de datos realizado por dichas plataformas se rige por sus propios avisos y políticas. 13 deNERO no controla sus prácticas de privacidad.",
+      },
+
+      minors: {
+        title: "Datos de personas menores de edad",
+        paragraph1:
+          "El sitio está dirigido a personas mayores de edad y no busca recabar intencionalmente datos de personas menores.",
+        paragraph2:
+          "Si se identifica que se han recibido datos de una persona menor sin la autorización correspondiente, podrán eliminarse tan pronto como sea razonablemente posible.",
+      },
+
+      changes: {
+        title: "Cambios al aviso",
+        paragraph1:
+          "Este Aviso de Privacidad podrá modificarse para reflejar cambios legales, operativos, tecnológicos o en los servicios ofrecidos.",
+        paragraph2:
+          "La versión vigente estará disponible permanentemente en esta página y mostrará su fecha de última actualización.",
+      },
+
+      contact: {
+        title: "Contacto en materia de privacidad",
+        paragraph1:
+          "Para consultas o solicitudes relacionadas con el tratamiento de datos personales, puede utilizar los siguientes datos:",
+        responsibleLabel: "Responsable",
+        //addressLabel: "Domicilio",
+        emailLabel: "Correo electrónico",
+      },
+    },
+  },
+},
 };
 
 export default es;
