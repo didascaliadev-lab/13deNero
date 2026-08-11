@@ -33,6 +33,8 @@ const en = {
     copyright:
       "13 deNERO © {{year}} All rights reserved.",
 
+    designBy: "Design and development by",
+
     alcoholWarning:
       "The sale of alcoholic beverages to minors is prohibited.",
   },
@@ -292,11 +294,11 @@ const en = {
         "Write to us to learn more about our mezcals, retailers, collaborations, experiences and distribution opportunities.",
 
         emailLabel: "Email",
-        email: "contacto@13denero.com",
+        email: "mezcal.13denero@gmail.com",
 
         phoneLabel: "Phone",
-        phone: "+52 55 0000 0000",
-        phoneLink: "+525500000000",
+        phone: "+52 55 2561 0941",
+        phoneLink: "+525525610941",
 
         locationLabel: "Origin",
         location: "Oaxaca, Mexico",
@@ -329,8 +331,14 @@ const en = {
         sending: "Sending...",
         success:
         "Your message has been received. We will continue the conversation soon.",
+      
+      consentBefore:
+        "I agree that my information may be used to respond to this request and acknowledge the",
+      privacyLink:
+        "Privacy Notice",
+      error:
+        "We could not send your message. Please try again.",      
       },
-
       closing: {
         text:
         "Mezcal brings stories together. The next one could begin with you.",
@@ -338,6 +346,31 @@ const en = {
       },
     },
         portal: {
+          signupModal: {
+        eyebrow: "Welcome",
+        title: "Welcome to our Portal",
+        description:
+          "If you would like to learn more about our products, experiences and activities, sign up to receive our latest news.",
+
+        emailLabel: "Your email address",
+        emailPlaceholder: "name@email.com",
+
+        consentBefore:
+          "I agree to receive news, experiences and information from 13 deNERO and acknowledge the",
+        privacyLink: "Privacy Notice",
+
+        submit: "Keep me updated",
+        sending: "Signing up...",
+        skip: "Continue without signing up",
+        close: "Close",
+
+        successTitle: "Welcome to the Portal.",
+        success:
+          "Your email has been registered. You will soon receive news from 13 deNERO.",
+
+        error:
+          "We could not register your email. Please try again.",
+      },      
       hero: {
         eyebrow: "The Portal",
         title: "Awaken your senses.",
@@ -655,6 +688,7 @@ const en = {
         },
       },
     },
+    
     legal: {
   common: {
     backHome: "Back to home",

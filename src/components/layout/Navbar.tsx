@@ -7,7 +7,7 @@ import type {
 import {
   HiBars3,
   HiChevronDown,
-  HiOutlineShoppingBag,
+
   HiXMark,
 } from "react-icons/hi2";
 
@@ -193,7 +193,7 @@ export default function Navbar() {
             "
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="13 de Enero"
               className="
                 h-14
@@ -500,51 +500,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Carrito */}
-            <NavLink
-              to="/tienda"
-              onClick={closeAllMenus}
-              aria-label={t(
-                "navbar.openCart",
-              )}
-              className="
-                relative
-                text-text
-                transition-all
-                duration-300
-                hover:scale-110
-                hover:text-gold
-                focus-visible:outline-2
-                focus-visible:outline-offset-4
-                focus-visible:outline-gold
-              "
-            >
-              <HiOutlineShoppingBag
-                size={26}
-              />
-
-              <span
-                className="
-                  absolute
-                  -right-2
-                  -top-2
-                  flex
-                  h-4
-                  min-w-4
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-gold
-                  px-1
-                  text-[10px]
-                  font-semibold
-                  text-bg
-                "
-              >
-                0
-              </span>
-            </NavLink>
-
+           
             {/* Botón móvil */}
             <button
               type="button"

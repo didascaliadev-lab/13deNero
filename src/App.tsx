@@ -4,7 +4,7 @@ import  AgeVerification from './components/layout/AgeVerification'
 import Portal from './pages/Portal';
 import Producto from "./pages/Producto";
 import Contacto from './pages/Contacto';
-import Tienda from './pages/Tienda';
+
 import Terminos from './pages/Terminos';
 import Privacidad from './pages/Privacidad';
 import Navbar from './components/layout/Navbar';
@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productos/:slug" element={<Producto />} />
         <Route path="/portal" element={<Portal />} />
-        <Route path="/tienda" element={<Tienda />} />
+      
         <Route path="/contacto" element={<Contacto />} />
          <Route
           path="/terminos"

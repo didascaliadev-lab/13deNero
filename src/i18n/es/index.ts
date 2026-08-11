@@ -33,6 +33,8 @@ const es = {
     copyright:
       "13 deNERO © {{year}} Todos los derechos reservados.",
 
+    designBy: "Diseño y desarrollo de",
+
     alcoholWarning:
       "Prohibida la venta de bebidas alcohólicas a menores de edad.",
   },
@@ -285,11 +287,11 @@ const es = {
       "Escríbenos para conocer más sobre nuestros mezcales, puntos de venta, colaboraciones, experiencias y distribución.",
 
       emailLabel: "Correo",
-      email: "contacto@13denero.com",
+      email: "mezcal.13denero@gmail.com",
 
       phoneLabel: "Teléfono",
-      phone: "+52 951 209 3313",
-      phoneLink: "+529512093313",
+      phone: "+52 55 2561 0941",
+      phoneLink: "+525525610941",
 
       locationLabel: "Origen",
       location: "Oaxaca, México",
@@ -321,7 +323,14 @@ const es = {
       sending: "Enviando...",
       success:
       "Tu mensaje ha sido recibido. Pronto continuaremos la conversación.",
+      consentBefore:
+        "Acepto que mis datos sean utilizados para atender esta solicitud y reconozco el",
+      privacyLink:
+        "Aviso de Privacidad",
+      error:
+        "No pudimos enviar tu mensaje. Inténtalo nuevamente.",
     },
+      
 
     closing: {
       text:
@@ -330,6 +339,31 @@ const es = {
   },
 },
   portal: {
+    signupModal: {
+      eyebrow: "Bienvenido",
+      title: "Bienvenido a nuestro Portal",
+      description:
+        "Si quieres conocer más sobre nuestros productos, experiencias y actividades, regístrate para recibir nuestras novedades.",
+
+      emailLabel: "Tu correo electrónico",
+      emailPlaceholder: "nombre@correo.com",
+
+      consentBefore:
+        "Acepto recibir novedades, experiencias e información de 13 deNERO y reconozco el",
+      privacyLink: "Aviso de Privacidad",
+
+      submit: "Quiero recibir novedades",
+      sending: "Registrando...",
+      skip: "Continuar sin registrarme",
+      close: "Cerrar",
+
+      successTitle: "Bienvenido al Portal.",
+      success:
+        "Tu correo ha sido registrado. Muy pronto recibirás noticias de 13 deNERO.",
+
+      error:
+        "No pudimos registrar tu correo. Inténtalo nuevamente.",
+    },       
     hero: {
       eyebrow: "El Portal",
       title: "Despierta tus sentidos.",
@@ -647,6 +681,7 @@ const es = {
       },
     },
 },
+
 legal: {
   common: {
     backHome: "Volver al inicio",

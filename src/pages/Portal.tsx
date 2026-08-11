@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-
+import PortalSignupModal from "../components/layout/PortalSingUpModal";
 import Container from "../components/ui/Container";
 
 import {
@@ -71,6 +71,7 @@ export default function Portal() {
 
   return (
     <main className="bg-bg">
+      <PortalSignupModal />
       {/* Hero */}
       <section
         className="

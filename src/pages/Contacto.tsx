@@ -1,8 +1,11 @@
 import {
   useState,
   type FormEvent,
+  type ChangeEvent,
 } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import emailjs from "@emailjs/browser";
 
 import Container from "../components/ui/Container";
 
@@ -26,13 +29,22 @@ export default function Contacto() {
   const [formData, setFormData] =
     useState<FormData>(initialFormData);
 
-  const [isSending, setIsSending] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [acceptedPrivacy, setAcceptedPrivacy] =
+    useState(false);
+
+  const [isSending, setIsSending] =
+    useState(false);
+
+  const [submitted, setSubmitted] =
+    useState(false);
+
+  const [error, setError] =
+    useState("");
 
   const handleChange = (
     event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+      | ChangeEvent<HTMLInputElement>
+      | ChangeEvent<HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
 
@@ -44,6 +56,10 @@ export default function Contacto() {
     if (submitted) {
       setSubmitted(false);
     }
+
+    if (error) {
+      setError("");
+    }
   };
 
   const handleSubmit = async (
@@ -51,22 +67,65 @@ export default function Contacto() {
   ) => {
     event.preventDefault();
 
+    if (!acceptedPrivacy) {
+      return;
+    }
+
+    const serviceId =
+      import.meta.env.VITE_EMAILJS_SERVICE_ID;
+
+    const templateId =
+      import.meta.env
+        .VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+
+    const publicKey =
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (
+      !serviceId ||
+      !templateId ||
+      !publicKey
+    ) {
+      setError(
+        t("contact.form.error"),
+      );
+
+      return;
+    }
+
     setIsSending(true);
+    setSubmitted(false);
+    setError("");
 
     try {
-      /*
-       * Aquí conectaremos posteriormente EmailJS,
-       * Formspree o el backend de Hostinger.
-       */
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
 
-      console.log("Formulario de contacto:", formData);
+          date: new Date().toLocaleString(
+            "es-MX",
+            {
+              dateStyle: "long",
+              timeStyle: "short",
+            },
+          ),
+        },
+        {
+          publicKey,
+        },
+      );
 
       setSubmitted(true);
       setFormData(initialFormData);
-    } catch (error) {
-      console.error(
-        "Error al enviar el formulario:",
-        error,
+      setAcceptedPrivacy(false);
+    } catch {
+      setError(
+        t("contact.form.error"),
       );
     } finally {
       setIsSending(false);
@@ -75,130 +134,130 @@ export default function Contacto() {
 
   return (
     <main className="bg-bg">
-       {/* Hero */}
-        <section
+      {/* Hero */}
+      <section
+        className="
+          relative
+          flex
+          min-h-[560px]
+          items-start
+          overflow-hidden
+          sm:min-h-[640px]
+          lg:min-h-[720px]
+        "
+      >
+        <picture
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+          "
+        >
+          {/* Celular */}
+          <source
+            media="(max-width: 767px)"
+            srcSet="/fotos/heros/contacto_celular.jpg"
+          />
+
+          {/* Desktop */}
+          <img
+            src="/fotos/heros/contacto.jpg"
+            alt={t("contact.hero.imageAlt")}
             className="
-                relative
-                flex
-                min-h-[560px]
-                items-start
-                overflow-hidden
-                sm:min-h-[640px]
-                lg:min-h-[720px]
+              h-full
+              w-full
+              object-cover
+              object-center
             "
+          />
+        </picture>
+
+        {/* Oscurecimiento general */}
+        <div className="absolute inset-0 bg-black/10" />
+
+        {/* Contraste para el texto */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-black/95
+            via-black/55
+            to-black/5
+          "
+        />
+
+        {/* Profundidad inferior */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-bg/80
+            via-transparent
+            to-black/5
+          "
+        />
+
+        <Container
+          size="xl"
+          className="
+            relative
+            z-10
+            w-full
+            pb-14
+            pt-36
+            sm:pb-16
+            sm:pt-40
+            lg:pb-20
+            lg:pt-44
+          "
+        >
+          <div className="max-w-2xl">
+            <span
+              className="
+                text-[0.65rem]
+                tracking-[0.45em]
+                text-gold
+                sm:text-xs
+              "
             >
-                <picture
-                    className="
-                        absolute
-                        inset-0
-                        h-full
-                        w-full
-                    "
-                >
-                    {/* celu*/}
-                    <source
-                        media="(max-width: 767px)"
-                        srcSet="/fotos/heros/contacto_celular.jpg"
-                    />
+              {t("contact.hero.eyebrow")}
+            </span>
 
-                    {/* Desktop */}
-                    <img
-                        src="/fotos/heros/contacto.jpg"
-                        alt={t("contact.hero.imageAlt")}
-                        className="
-                            h-full
-                            w-full
-                            object-cover
-                            object-center
-                        "
-                    />
-                </picture>
+            <h1
+              className="
+                mt-4
+                max-w-2xl
+                font-title
+                text-5xl
+                leading-[1]
+                text-text
+                sm:text-6xl
+                md:text-7xl
+                lg:text-[5.5rem]
+              "
+            >
+              {t("contact.hero.title")}
+            </h1>
 
-                {/* Oscurecimiento general */}
-                <div className="absolute inset-0 bg-black/10" />
-
-                {/* Contraste para el texto */}
-                <div
-                    className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-r
-                        from-black/95
-                        via-black/55
-                        to-black/5
-                    "
-                />
-
-                {/* Profundidad inferior */}
-                <div
-                    className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-bg/80
-                        via-transparent
-                        to-black/5
-                    "
-                />
-
-                <Container
-                    size="xl"
-                    className="
-                        relative
-                        z-10
-                        w-full
-                        pb-14
-                        pt-36
-                        sm:pb-16
-                        sm:pt-40
-                        lg:pb-20
-                        lg:pt-44
-                    "
-                >
-                    <div className="max-w-2xl">
-                        <span
-                            className="
-                                text-[0.65rem]
-                                tracking-[0.45em]
-                                text-gold
-                                sm:text-xs
-                            "
-                        >
-                            {t("contact.hero.eyebrow")}
-                        </span>
-
-                        <h1
-                            className="
-                                mt-4
-                                max-w-2xl
-                                font-title
-                                text-5xl
-                                leading-[1]
-                                text-text
-                                sm:text-6xl
-                                md:text-7xl
-                                lg:text-[5.5rem]
-                            "
-                        >
-                            {t("contact.hero.title")}
-                        </h1>
-
-                        <p
-                            className="
-                                mt-6
-                                max-w-xl
-                                text-base
-                                leading-8
-                                text-white/75
-                                sm:text-lg
-                                sm:leading-9
-                            "
-                        >
-                            {t("contact.hero.description")}
-                        </p>
-                    </div>
-                </Container>
-            </section>
+            <p
+              className="
+                mt-6
+                max-w-xl
+                text-base
+                leading-8
+                text-white/75
+                sm:text-lg
+                sm:leading-9
+              "
+            >
+              {t("contact.hero.description")}
+            </p>
+          </div>
+        </Container>
+      </section>
 
       {/* Introducción e información */}
       <section className="bg-bg py-20 sm:py-24 lg:py-32">
@@ -250,37 +309,53 @@ export default function Contacto() {
                   sm:leading-9
                 "
               >
-                {t("contact.details.description")}
+                {t(
+                  "contact.details.description",
+                )}
               </p>
             </div>
 
             <div className="border-t border-white/10">
               <ContactDetail
-                label={t("contact.details.emailLabel")}
-                value={t("contact.details.email")}
+                label={t(
+                  "contact.details.emailLabel",
+                )}
+                value={t(
+                  "contact.details.email",
+                )}
                 href={`mailto:${t(
                   "contact.details.email",
                 )}`}
               />
 
               <ContactDetail
-                label={t("contact.details.phoneLabel")}
-                value={t("contact.details.phone")}
-                href={`tel:${t("contact.details.phoneLink")}`}
+                label={t(
+                  "contact.details.phoneLabel",
+                )}
+                value={t(
+                  "contact.details.phone",
+                )}
+                href={`tel:${t(
+                  "contact.details.phoneLink",
+                )}`}
               />
 
               <ContactDetail
                 label={t(
                   "contact.details.locationLabel",
                 )}
-                value={t("contact.details.location")}
+                value={t(
+                  "contact.details.location",
+                )}
               />
 
               <ContactDetail
                 label={t(
                   "contact.details.scheduleLabel",
                 )}
-                value={t("contact.details.schedule")}
+                value={t(
+                  "contact.details.schedule",
+                )}
               />
             </div>
           </div>
@@ -336,7 +411,9 @@ export default function Contacto() {
                   sm:leading-9
                 "
               >
-                {t("contact.form.description")}
+                {t(
+                  "contact.form.description",
+                )}
               </p>
             </div>
 
@@ -356,7 +433,9 @@ export default function Contacto() {
                   id="name"
                   name="name"
                   type="text"
-                  label={t("contact.form.name")}
+                  label={t(
+                    "contact.form.name",
+                  )}
                   placeholder={t(
                     "contact.form.namePlaceholder",
                   )}
@@ -369,7 +448,9 @@ export default function Contacto() {
                   id="email"
                   name="email"
                   type="email"
-                  label={t("contact.form.email")}
+                  label={t(
+                    "contact.form.email",
+                  )}
                   placeholder={t(
                     "contact.form.emailPlaceholder",
                   )}
@@ -384,7 +465,9 @@ export default function Contacto() {
                   id="subject"
                   name="subject"
                   type="text"
-                  label={t("contact.form.subject")}
+                  label={t(
+                    "contact.form.subject",
+                  )}
                   placeholder={t(
                     "contact.form.subjectPlaceholder",
                   )}
@@ -403,7 +486,9 @@ export default function Contacto() {
                     text-gold
                   "
                 >
-                  {t("contact.form.message")}
+                  {t(
+                    "contact.form.message",
+                  )}
                 </label>
 
                 <textarea
@@ -438,6 +523,83 @@ export default function Contacto() {
                 />
               </div>
 
+              {/* Consentimiento */}
+              <label
+                className="
+                  mt-7
+                  flex
+                  cursor-pointer
+                  items-start
+                  gap-3
+                  text-left
+                "
+              >
+                <input
+                  type="checkbox"
+                  checked={acceptedPrivacy}
+                  onChange={(event) => {
+                    setAcceptedPrivacy(
+                      event.target.checked,
+                    );
+
+                    if (error) {
+                      setError("");
+                    }
+                  }}
+                  required
+                  className="
+                    mt-1
+                    h-4
+                    w-4
+                    shrink-0
+                    accent-[var(--color-gold)]
+                  "
+                />
+
+                <span
+                  className="
+                    text-xs
+                    leading-6
+                    text-white/45
+                  "
+                >
+                  {t(
+                    "contact.form.consentBefore",
+                  )}{" "}
+                  <Link
+                    to="/privacidad"
+                    className="
+                      text-gold
+                      underline
+                      underline-offset-4
+                      transition-colors
+                      duration-300
+                      hover:text-text
+                    "
+                  >
+                    {t(
+                      "contact.form.privacyLink",
+                    )}
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              {/* Error */}
+              {error && (
+                <p
+                  role="alert"
+                  className="
+                    mt-5
+                    text-sm
+                    leading-6
+                    text-red-400
+                  "
+                >
+                  {error}
+                </p>
+              )}
+
               <div
                 className="
                   mt-10
@@ -445,6 +607,7 @@ export default function Contacto() {
                   flex-col
                   items-start
                   gap-5
+
                   sm:flex-row
                   sm:items-center
                   sm:justify-between
@@ -452,7 +615,10 @@ export default function Contacto() {
               >
                 <button
                   type="submit"
-                  disabled={isSending}
+                  disabled={
+                    isSending ||
+                    !acceptedPrivacy
+                  }
                   className="
                     inline-flex
                     min-h-12
@@ -468,15 +634,21 @@ export default function Contacto() {
                     text-bg
                     transition-all
                     duration-300
+
                     hover:bg-transparent
                     hover:text-gold
+
                     disabled:cursor-not-allowed
-                    disabled:opacity-60
+                    disabled:opacity-40
                   "
                 >
                   {isSending
-                    ? t("contact.form.sending")
-                    : t("contact.form.submit")}
+                    ? t(
+                        "contact.form.sending",
+                      )
+                    : t(
+                        "contact.form.submit",
+                      )}
                 </button>
 
                 {submitted && (
@@ -488,7 +660,9 @@ export default function Contacto() {
                       text-gold
                     "
                   >
-                    {t("contact.form.success")}
+                    {t(
+                      "contact.form.success",
+                    )}
                   </p>
                 )}
               </div>
@@ -513,9 +687,11 @@ export default function Contacto() {
               "
             >
               <div className="h-px w-14 bg-gold/40" />
+
               <span className="text-xs text-gold">
                 ✦
               </span>
+
               <div className="h-px w-14 bg-gold/40" />
             </div>
 
@@ -529,7 +705,9 @@ export default function Contacto() {
                 lg:text-5xl
               "
             >
-              {t("contact.closing.text")}
+              {t(
+                "contact.closing.text",
+              )}
             </p>
 
             <span
@@ -541,7 +719,9 @@ export default function Contacto() {
                 text-gold
               "
             >
-              {t("contact.closing.brand")}
+              {t(
+                "contact.closing.brand",
+              )}
             </span>
           </div>
         </Container>
@@ -615,7 +795,7 @@ type FormFieldProps = {
   placeholder: string;
   value: string;
   onChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: ChangeEvent<HTMLInputElement>,
   ) => void;
   autoComplete?: string;
 };
