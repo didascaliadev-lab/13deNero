@@ -106,11 +106,7 @@ export default function Contacto() {
     setError("");
 
     try {
-      /*
-       * Ejecutamos reCAPTCHA invisible.
-       * Si Google considera normal la interacción,
-       * el usuario no verá ningún reto.
-       */
+   
       const recaptchaToken =
         await recaptchaRef.current?.executeAsync();
 
@@ -186,7 +182,7 @@ export default function Contacto() {
           {/* Celular */}
           <source
             media="(max-width: 767px)"
-            srcSet="/fotos/heros/contacto_celular.jpg"
+            srcSet="/fotos/heros/contacto.jpg"
           />
 
           {/* Desktop */}
