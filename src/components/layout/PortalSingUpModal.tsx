@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useRef,
   useState,
   type FormEvent,
 } from "react";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HiXMark } from "react-icons/hi2";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type PortalSignupModalProps = {
   storageKey?: string;
@@ -16,6 +18,8 @@ export default function PortalSignupModal({
   storageKey = "13denero-portal-signup-seen",
 }: PortalSignupModalProps) {
   const { t } = useTranslation();
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [isVisible, setIsVisible] = useState(() => {
     try {
@@ -49,10 +53,13 @@ export default function PortalSignupModal({
 
   const rememberModal = () => {
     try {
-      sessionStorage.setItem(storageKey, "true");
+      sessionStorage.setItem(
+        storageKey,
+        "true",
+      );
     } catch {
       // Si sessionStorage no está disponible,
-      // simplemente permitimos que el modal vuelva a mostrarse.
+      // el modal podrá volver a mostrarse.
     }
   };
 
@@ -76,15 +83,20 @@ export default function PortalSignupModal({
       import.meta.env.VITE_EMAILJS_SERVICE_ID;
 
     const templateId =
-      import.meta.env.VITE_EMAILJS_PORTAL_TEMPLATE_ID;
+      import.meta.env
+        .VITE_EMAILJS_PORTAL_TEMPLATE_ID;
 
     const publicKey =
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    const recaptchaSiteKey =
+      import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
     if (
       !serviceId ||
       !templateId ||
-      !publicKey
+      !publicKey ||
+      !recaptchaSiteKey
     ) {
       setError(
         t("portal.signupModal.error"),
@@ -97,11 +109,21 @@ export default function PortalSignupModal({
     setError("");
 
     try {
+      const recaptchaToken =
+        await recaptchaRef.current?.executeAsync();
+
+      if (!recaptchaToken) {
+        throw new Error(
+          "No se pudo obtener el token de reCAPTCHA.",
+        );
+      }
+
       await emailjs.send(
         serviceId,
         templateId,
         {
           email: cleanEmail,
+
           date: new Date().toLocaleString(
             "es-MX",
             {
@@ -109,6 +131,9 @@ export default function PortalSignupModal({
               timeStyle: "short",
             },
           ),
+
+          "g-recaptcha-response":
+            recaptchaToken,
         },
         {
           publicKey,
@@ -119,6 +144,8 @@ export default function PortalSignupModal({
 
       rememberModal();
 
+      recaptchaRef.current?.reset();
+
       window.setTimeout(() => {
         setIsVisible(false);
       }, 2500);
@@ -126,6 +153,8 @@ export default function PortalSignupModal({
       setError(
         t("portal.signupModal.error"),
       );
+
+      recaptchaRef.current?.reset();
     } finally {
       setIsSending(false);
     }
@@ -343,9 +372,15 @@ export default function PortalSignupModal({
                   name="email"
                   type="email"
                   value={email}
-                  onChange={(event) =>
-                    setEmail(event.target.value)
-                  }
+                  onChange={(event) => {
+                    setEmail(
+                      event.target.value,
+                    );
+
+                    if (error) {
+                      setError("");
+                    }
+                  }}
                   placeholder={t(
                     "portal.signupModal.emailPlaceholder",
                   )}
@@ -389,11 +424,15 @@ export default function PortalSignupModal({
                   <input
                     type="checkbox"
                     checked={acceptedPrivacy}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setAcceptedPrivacy(
                         event.target.checked,
-                      )
-                    }
+                      );
+
+                      if (error) {
+                        setError("");
+                      }
+                    }}
                     required
                     className="
                       mt-1
@@ -436,6 +475,16 @@ export default function PortalSignupModal({
                     .
                   </span>
                 </label>
+
+                {/* reCAPTCHA invisible */}
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={
+                    import.meta.env
+                      .VITE_RECAPTCHA_SITE_KEY
+                  }
+                  size="invisible"
+                />
 
                 {/* Error */}
                 {error && (
