@@ -1,4 +1,5 @@
 import {
+  useRef,
   useState,
   type FormEvent,
   type ChangeEvent,
@@ -6,6 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import Container from "../components/ui/Container";
 
@@ -25,6 +27,8 @@ const initialFormData: FormData = {
 
 export default function Contacto() {
   const { t } = useTranslation();
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [formData, setFormData] =
     useState<FormData>(initialFormData);
@@ -81,10 +85,14 @@ export default function Contacto() {
     const publicKey =
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    const recaptchaSiteKey =
+      import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
     if (
       !serviceId ||
       !templateId ||
-      !publicKey
+      !publicKey ||
+      !recaptchaSiteKey
     ) {
       setError(
         t("contact.form.error"),
@@ -98,6 +106,20 @@ export default function Contacto() {
     setError("");
 
     try {
+      /*
+       * Ejecutamos reCAPTCHA invisible.
+       * Si Google considera normal la interacción,
+       * el usuario no verá ningún reto.
+       */
+      const recaptchaToken =
+        await recaptchaRef.current?.executeAsync();
+
+      if (!recaptchaToken) {
+        throw new Error(
+          "No se pudo obtener el token de reCAPTCHA.",
+        );
+      }
+
       await emailjs.send(
         serviceId,
         templateId,
@@ -114,6 +136,9 @@ export default function Contacto() {
               timeStyle: "short",
             },
           ),
+
+          "g-recaptcha-response":
+            recaptchaToken,
         },
         {
           publicKey,
@@ -123,10 +148,14 @@ export default function Contacto() {
       setSubmitted(true);
       setFormData(initialFormData);
       setAcceptedPrivacy(false);
+
+      recaptchaRef.current?.reset();
     } catch {
       setError(
         t("contact.form.error"),
       );
+
+      recaptchaRef.current?.reset();
     } finally {
       setIsSending(false);
     }
@@ -173,10 +202,8 @@ export default function Contacto() {
           />
         </picture>
 
-        {/* Oscurecimiento general */}
         <div className="absolute inset-0 bg-black/10" />
 
-        {/* Contraste para el texto */}
         <div
           className="
             absolute
@@ -188,7 +215,6 @@ export default function Contacto() {
           "
         />
 
-        {/* Profundidad inferior */}
         <div
           className="
             absolute
@@ -584,6 +610,16 @@ export default function Contacto() {
                   .
                 </span>
               </label>
+
+              {/* reCAPTCHA invisible */}
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={
+                  import.meta.env
+                    .VITE_RECAPTCHA_SITE_KEY
+                }
+                size="invisible"
+              />
 
               {/* Error */}
               {error && (
