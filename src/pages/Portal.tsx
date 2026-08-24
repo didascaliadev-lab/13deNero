@@ -548,39 +548,122 @@ export default function Portal() {
         </Container>
       </section>
 
-      {/* Experiencia sensorial */}
+      
+    {/* Experiencia sensorial */}
       <section className="bg-bg py-20 sm:py-24 lg:py-28">
         <Container size="xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <span
-              className="
-                text-[0.65rem]
-                tracking-[0.4em]
-                text-gold
-                sm:text-xs
-              "
-            >
-              {t("portal.common.sensesEyebrow")}
-            </span>
 
-            <h2
-              className="
-                mt-5
-                font-title
-                text-4xl
-                leading-tight
-                text-text
-                sm:text-5xl
-                lg:text-6xl
-              "
-            >
-              {t("portal.common.sensoryExperience")}
-            </h2>
-          </div>
-
+          {/* Introducción visual */}
           <div
             className="
-              mt-12
+              relative
+              isolate
+              flex
+              min-h-[380px]
+              items-center
+              justify-center
+              overflow-hidden
+              border
+              border-white/10
+              sm:min-h-[440px]
+              lg:min-h-[500px]
+            "
+          >
+            {/* Imagen */}
+        
+        
+        <picture className="absolute inset-0 z-0 h-full w-full">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/fotos/portal/experiencia-celu.webp"
+          />
+
+          <img
+            src="/fotos/portal/experiencia.webp"
+            alt=""
+            aria-hidden="true"
+            className="
+              h-full
+              w-full
+              object-cover
+              object-center
+            "
+          />
+        </picture>
+
+        {/* Overlay */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-10
+            bg-black/45
+          "
+        />
+
+        {/* Gradiente */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-10
+            bg-gradient-to-b
+            from-black/30
+            via-black/55
+            to-bg
+          "
+        />
+            {/* Contenido */}
+            <div className="relative z-10 mx-auto max-w-3xl px-6 py-16 text-center sm:px-10">
+
+              <span
+                className="
+                  text-[0.65rem]
+                  tracking-[0.4em]
+                  text-gold
+                  sm:text-xs
+                "
+              >
+                {t("portal.common.sensesEyebrow")}
+              </span>
+
+              <h2
+                className="
+                  mt-5
+                  font-title
+                  text-5xl
+                  leading-[1.05]
+                  text-text
+                  sm:text-6xl
+                  lg:text-7xl
+                "
+              >
+                {t("portal.common.sensoryExperience")}
+              </h2>
+
+              <div
+                aria-hidden="true"
+                className="
+                  mx-auto
+                  mt-8
+                  flex
+                  items-center
+                  justify-center
+                  gap-4
+                "
+              >
+                <div className="h-px w-12 bg-gold/50" />
+                <span className="text-xs text-gold">✦</span>
+                <div className="h-px w-12 bg-gold/50" />
+              </div>
+
+            </div>
+          </div>
+
+          {/* Información sensorial */}
+          <div
+            className="
+              mt-8
               grid
               gap-px
               overflow-hidden
@@ -611,110 +694,82 @@ export default function Portal() {
               items={audicion}
             />
           </div>
+
         </Container>
       </section>
-
-      {/* Ritual */}
-      <section className="bg-surface/40 py-20 sm:py-24 lg:py-32">
-        <Container size="lg">
-          <article
-            className="
-              mx-auto
-              max-w-5xl
-              border
-              border-gold/25
-              bg-bg/65
-              px-6
-              py-12
-              text-center
-              sm:px-10
-              sm:py-16
-              lg:px-16
-              lg:py-20
-            "
-          >
-            <div
-              aria-hidden="true"
-              className="
-                mx-auto
-                mb-8
-                flex
-                items-center
-                justify-center
-                gap-4
-              "
-            >
-              <div className="h-px w-14 bg-gold/40" />
-              <span className="text-xs text-gold">
-                ✦
-              </span>
-              <div className="h-px w-14 bg-gold/40" />
-            </div>
-
-            <span
-              className="
-                text-xs
-                tracking-[0.3em]
-                text-gold
-              "
-            >
-              {t("portal.common.experience")}
-            </span>
-
-            <h2
-              className="
-                mt-5
-                font-title
-                text-4xl
-                leading-tight
-                text-text
-                sm:text-5xl
-                lg:text-6xl
-              "
-            >
-              {t(`${key}.experience.title`)}
-            </h2>
-
-            <p
-              className="
-                mx-auto
-                mt-7
-                max-w-3xl
-                text-base
-                leading-8
-                text-text-muted
-                sm:text-lg
-                sm:leading-9
-              "
-            >
-              {t(`${key}.experience.description`)}
-            </p>
-          </article>
-        </Container>
-      </section>
-
       {/* Enfoque */}
       <section className="bg-bg py-20 sm:py-24 lg:py-28">
         <Container size="xl">
+
+          {/* Introducción visual */}
           <div
             className="
-              grid
-              gap-10
-              border-y
+              relative
+              isolate
+              flex
+              min-h-[420px]
+              items-center
+              justify-center
+              overflow-hidden
+              border
               border-white/10
-              py-12
-              md:grid-cols-[0.55fr_1.45fr]
-              md:items-start
-              md:gap-16
-              lg:py-16
+              sm:min-h-[480px]
+              lg:min-h-[560px]
             "
           >
-            <div>
+
+            {/* Imagen responsive */}
+            <picture className="absolute inset-0 z-0 h-full w-full">
+              <source
+                media="(max-width: 767px)"
+                srcSet="/fotos/portal/enfoque-celu.webp"
+              />
+
+              <img
+                src="/fotos/portal/enfoque.webp"
+                alt=""
+                aria-hidden="true"
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  object-center
+                "
+              />
+            </picture>
+
+            {/* Overlay */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-10
+                bg-black/65
+              "
+            />
+
+            {/* Gradiente */}
+            <div
+              className="
+                absolute
+                inset-0
+                z-10
+                bg-gradient-to-b
+                from-black/30
+                via-black/55
+                to-bg
+              "
+            />
+
+            {/* Contenido */}
+            <div className="relative z-10 mx-auto max-w-4xl px-6 py-20 text-center sm:px-10 sm:py-24 lg:py-28">
+
               <span
                 className="
-                  text-xs
-                  tracking-[0.28em]
+                  text-[0.65rem]
+                  tracking-[0.4em]
                   text-gold
+                  sm:text-xs
                 "
               >
                 {t("portal.common.focus")}
@@ -724,28 +779,53 @@ export default function Portal() {
                 className="
                   mt-5
                   font-title
-                  text-4xl
-                  leading-tight
+                  text-5xl
+                  leading-[1.05]
                   text-text
-                  sm:text-5xl
+                  sm:text-6xl
+                  lg:text-7xl
                 "
               >
                 {t(`${key}.focus.title`)}
               </h2>
+
+              <div
+                aria-hidden="true"
+                className="
+                  mx-auto
+                  mt-8
+                  flex
+                  items-center
+                  justify-center
+                  gap-4
+                "
+              >
+                <div className="h-px w-12 bg-gold/50" />
+                <span className="text-xs text-gold">✦</span>
+                <div className="h-px w-12 bg-gold/50" />
+              </div>
+
+              <p
+                className="
+                  mx-auto
+                  mt-8
+                  max-w-3xl
+                  text-base
+                  leading-8
+                  text-white/75
+                  sm:text-lg
+                  sm:leading-9
+                  lg:text-xl
+                  lg:leading-10
+                "
+              >
+                {t(`${key}.focus.description`)}
+              </p>
+
             </div>
 
-            <p
-              className="
-                text-lg
-                leading-9
-                text-text-muted
-                sm:text-xl
-                sm:leading-10
-              "
-            >
-              {t(`${key}.focus.description`)}
-            </p>
           </div>
+
         </Container>
       </section>
 
